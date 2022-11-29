@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./cart-payment.css">
+</head>
+<body>
+    <h1 id="heading-cart">Your Cart</h1>
+    <div id="cart-payment-div">
+    <div id="shipment-div">
+        <div class="h2-div"><h2>Shipment from Cutter & Buck</h2></div>
+      <div id="learn-div">
+        <i class="fa-solid fa-truck"></i><p><span>Add $71.05 </span>in Market America products to qualify for <span>Free Shipping!</span><a href="">Learn More</a> </p>
+    </div>
+
+    <!-- append add to cart products -->
+    <div id="cart-product"> 
+
+    </div>
+    <div id="store-total">
+        <div>
+            <p>Store total:</p>
+        </div>
+        <div><h3><span>00.00</span></h3></div>
+    </div>
+      
+    </div>
+    <div id="payment-div">
+       
+        <div class="h2-div"> <h2>Order Total</h2></div>
+        <div id="div-subtitle">
+            <div><p>Subtotal:</p></div>
+
+            <!-- append price -->
+            <div id="price-div"><p><span>00.00</span></p></div>
+        </div>
+        <div id="para-div">
+            <p>or 4 interest-free payments of <span> $78.75</span> with <span id="sezzle-logo"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvT6H9nTPQz5iV1UTSTcIXxf2xm-2xNweadg&usqp=CAU" alt=""></span> <span id="se-text">Sezzleⓘ</span> </p>
+        </div>
+        <div id="zip-code">
+            <input id="code-input" type="text" placeholder="zip code">
+            <button id="shipping-btn">Estimate Shipping</button>
+        </div>
+        <button id="checkout">Proceed to Checkout</button>
+        <div id="checkout-card">
+            <p id="checkout-para">or checkout with:</p>
+            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBruR0EDIS7IV0QVnT08qljzTPWe2tV1mf9A&usqp=CAU" alt=""></button><br>
+            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnFEmcR5xO7MYeIOG06op5H_tZEMrJD5jFg&usqp=CAU" alt=""></button><br>
+            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0FyJqdkSYeLMEJGPbtS0geAZk6reEBRvuA&usqp=CAU" alt=""></button><br>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script >
+    let obj=[{
+     title:"Motives® Lip Kit",
+     price:000,
+     code:"#456",
+     catagory:"Romance",
+     url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
+
+    },
+    {
+        title:"Motives® Lip Kit",
+     price:000,
+     code:"#456",
+     catagory:"Romance",
+     url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
+    }
+]
+display=(obj)=>{
+obj.map(({title,price,code,catagory,url})=>{
+    let main_div=document.createElement("div");
+    main_div.setAttribute("id","main")
+    let img_div=document.createElement("div");
+    let img=document.createElement("img");
+    img.src=url;
+    img_div.append(img);
+
+    let title_div=document.createElement("div");
+    let title_head=document.createElement("h2");
+    title_head.textContent=title;
+    let price_val= document.createElement("h3");
+    price_val.textContent=price;
+    let code_no=document.createElement("h4");
+    code_no.textContent=code;
+    let cata=document.createElement("p");
+    cata.textContent=catagory;
+
+    let qty=document.createElement("h3");
+    qty.textContent="Quentity";
+    title_div.append(title_head,price_val,code_no,cata);
+
+   let button_div=document.createElement("div");
+   let removebtn=document.createElement("button");
+   removebtn.innerText="Remove";
+    button_div.append(removebtn);
+
+main_div.append(img_div,title_div,button_div);
+document.getElementById("cart-product").append(main_div);
+})
+
+console.log(main_div);
+}   
+display(obj); 
+</script>
