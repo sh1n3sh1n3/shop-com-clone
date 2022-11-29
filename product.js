@@ -161,6 +161,7 @@ let displaydata = (data) => {
 var flag = true;
 var flag1 = false;
 var flag2 = false;
+var flag3 = false;
 
 document.getElementById("sort").addEventListener("click", () => {
     var icon = document.getElementById("sort");
@@ -196,6 +197,7 @@ document.getElementById("filter2").addEventListener("click", () => {
     var icon2 = document.getElementById("filter2");
     if (flag2 == false) {
         document.querySelector("#productfilter2").style.display = "none";
+        
         flag2 = true;
 
         icon2.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
@@ -203,6 +205,20 @@ document.getElementById("filter2").addEventListener("click", () => {
         document.querySelector("#productfilter2").style.display = "block";
         flag2 = false;
         icon2.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+
+    }
+})
+document.getElementById("filter3").addEventListener("click", () => {
+    var icon3 = document.getElementById("filter3");
+    if (flag3 == false) {
+        document.querySelector("#productfilter3").style.display = "none";
+        flag3 = true;
+
+        icon3.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+    } else {
+        document.querySelector("#productfilter3").style.display = "block";
+        flag3 = false;
+        icon3.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
 
     }
 })

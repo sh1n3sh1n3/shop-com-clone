@@ -68,26 +68,44 @@
                         <li>Motives Cosmetics</li>
                     </ul>
                 </div>
-
             </div>
-            <div id="productfilter2">
-                <ul class="ul">
-                    <li>$30.00 and Below</li>
-                    <li>$30.01 - $40.00</li>
-                    <li>$40.01 - $75.00</li>
-                    <li>$75.01 - $125.00</li>
-                    <li>$125.01 - Above</li>
-                </ul>
-                <div>
-                    <input type="text" placeholder="Min">
-                    <input type="text" placeholder="Max">
-                    <button type="submit"></button>
+
+            <div id="filterdepartment" class="filter">
+                <div class="classflexRow" id="brand">
+                    <span>Price Range</span>
+                    <span id="filter3"><i class="fa-solid fa-chevron-up"></i></span>
                 </div>
+                <div id="productfilter3">
+                    <ul class="ul">
+                        <li>$30.00 and Below</li>
+                        <li>$30.01 - $40.00</li>
+                        <li>$40.01 - $75.00</li>
+                        <li>$75.01 - $125.00</li>
+                        <li>$125.01 - Above</li>
+                    </ul>
+                    <div id="price" class="classflexRow">
+                        <input id="minprice" type="number" placeholder="Min">
+                        <input id="maxprice" type="number" placeholder="Max">
+                        <button id="submitprice" type="submit"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <div id="textarea">
+                <p>
+                    Tell us how we are doing
+                </p>
+                <p> We constantly strive to improve the customer experience and we value your feedback.</p>
+
+                <textarea id="w3review" name="w3review" rows="4" cols="30"
+                    placeholder="Enter feedback here. include your email address if you would like to be contacted."></textarea>
+                <button id="submitFeedback">Submit Feedback</button>
+                <h4>Thanks!</h4>
+                <p>Your feedback is appreciated and reviewed by our team.</p>
             </div>
         </div>
         <div id="rightPortion">
             <div id="container">
-
             </div>
         </div>
     </div>

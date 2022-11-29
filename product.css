@@ -18,13 +18,13 @@
 
 #leftPortion {
     border: 2px solid black;
-    width: 15%;
-    height: 500px;
+    width: 17%;
+    /* height: 500px; */
 
 }
 
 #rightPortion {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 80%;
 
 }
@@ -123,7 +123,7 @@
     /* border: 2px solid rgb(46, 245, 102); */
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding-bottom: 15px;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -142,7 +142,7 @@
 #container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 15px;  
+    gap: 5px;  
     
 }
 #divCashback{
@@ -324,6 +324,60 @@ li{
     transition: all;
     transition-duration: 1s;
 }
+#price input {
+    padding: 7px 2px 7px 7px;
+    margin: 0px 1px 5px 0px;
+    width: 65px; 
+    font-style: italic; 
+}
+#price{
+    justify-content: flex-start;
+    gap: 7px;
+    margin-left:20px;
+}
+#price>button{
+    padding: 7px 2px 7px 7px;
+    margin: 0px 1px 5px 0px;
+    width: 50px;  
+    border-radius:50%;
+    height: 50px;
+}
+#w3review{
+    max-width: 100%;
+    min-width:100%;
+    margin: auto;
+    margin-top: 15px;
+}
+#textarea{
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    /* text-align: center; */
+    padding: 15px;
+    background-color: #f0f1f7;
+    color: #202340;
+    margin  : 0 10px;
+    gap: 10px;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+#textarea p{
+    font-size: 12px
+}
+#submitFeedback{
+    padding: 10px;
+    border-radius: 30px;
+    width: 150px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 
 
 
