@@ -4,13 +4,23 @@ let fetchdata = async () => {
     let response = await fetch(`http://localhost:3000/list`);
     let data = await response.json();
     // console.log(data);
-    displaydata(data);
+    arr = data
+    localStorage.setItem("arrdata", JSON.stringify(arr));
+    setTimeout(() => {
+        displaydata(arr);
+    }, 200);
+
+
+
 }
+
+let arr;
 fetchdata();
 
 let displaydata = (data) => {
-    data.map((list) => {
+    document.getElementById("container").innerText = "";
 
+    data.map((list) => {
 
         var divMain1 = document.createElement("div");
         divMain1.setAttribute("id", "divMain1");
@@ -140,6 +150,9 @@ let displaydata = (data) => {
         var addtocart = document.createElement("button");
         addtocart.setAttribute("id", "addtocart");
         addtocart.innerHTML = '<i class="fa-solid fa-cart-shopping">Add to cart</i>'
+        addtocart.addEventListener("click", () => {
+            addcart(list);
+        })
 
 
         divbutton.append(seedetail, addtocart);
@@ -155,7 +168,15 @@ let displaydata = (data) => {
         divMain2.append(productName, divVendor, divPrice, divCashback, shipping, rating, divbutton);
         divMain.append(divMain1, divMain3, divMain4, divMain2);
         document.getElementById("container").append(divMain);
+
     })
+}
+
+function addcart(list) {
+    var idlist = JSON.parse(localStorage.getItem("idlistforcart")) || [];
+    idlist.push(list.id);
+    console.log(idlist);
+    localStorage.setItem("idlistforcart", JSON.stringify(idlist));
 }
 
 var flag = true;
@@ -197,7 +218,7 @@ document.getElementById("filter2").addEventListener("click", () => {
     var icon2 = document.getElementById("filter2");
     if (flag2 == false) {
         document.querySelector("#productfilter2").style.display = "none";
-        
+
         flag2 = true;
 
         icon2.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
@@ -222,4 +243,56 @@ document.getElementById("filter3").addEventListener("click", () => {
 
     }
 })
+
+
+let filterhtl = () => {
+    var select = document.querySelector("#htl").innerText;
+    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    console.log(arr);
+    newarr.sort(function (a, b) {
+        return b.finalPrice - a.finalPrice;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+
+
+// let filterhtl = () => {
+//     var select = document.querySelector("#htl").innerText;
+//     var newarr = JSON.parse(localStorage.getItem("arrdata"));
+//     console.log(arr);
+//     newarr.sort(function (a, b) {
+//         return b.finalPrice - a.finalPrice;
+//     })
+//     console.log(newarr);
+//     displaydata(newarr);
+// }
+
+let filterlth = () => {
+    var select = document.querySelector("#lth").innerText;
+    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    console.log(select);
+    newarr.sort(function (a, b) {
+        return a.finalPrice - b.finalPrice;
+    })
+    // console.log(arr);
+    displaydata(newarr);
+}
+let filtermc = () => {
+    var select = document.querySelector("#mc").innerText;
+    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    console.log(select);
+    newarr.sort(function (a, b) {
+        return b.cashbackSort - a.cashbackSort;
+    })
+    // console.log(arr);
+    displaydata(newarr);
+}
+let filtermatch = () => {
+    displaydata(arr);
+    console.log(arr);
+}
+
+
+
 
