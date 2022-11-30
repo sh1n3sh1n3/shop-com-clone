@@ -5,6 +5,7 @@ let fetchdata = async () => {
     let data = await response.json();
     // console.log(data);
     arr = data
+    newarr = data;
     localStorage.setItem("arrdata", JSON.stringify(arr));
     setTimeout(() => {
         displaydata(arr);
@@ -15,9 +16,11 @@ let fetchdata = async () => {
 }
 
 let arr;
+var newarr;
 fetchdata();
 
 let displaydata = (data) => {
+    console.log(data);
     document.getElementById("container").innerText = "";
 
     data.map((list) => {
@@ -58,20 +61,6 @@ let displaydata = (data) => {
             image4.src = list.image4;
             divMain3.append(image4);
         }
-
-
-        // var image1 = document.createElement("img");;
-        // image1.src = list.image1;
-        // var image2 = document.createElement("img");;
-        // image2.src = list.image2;
-        // var image3 = document.createElement("img");;
-        // image3.src = list.image3;
-        // var image4 = document.createElement("img");;
-        // image4.src = list.image4;
-
-
-        // divMain3.append(image1, image2, image3, image4);
-
         ///////////////////////////////////////////////
         var showfeature = document.createElement("button");
 
@@ -183,22 +172,40 @@ var flag = true;
 var flag1 = false;
 var flag2 = false;
 var flag3 = false;
+// document.getElementById("sort").addEventListener("click", () => {
+//     var icon = document.getElementById("sort");
+//     if (flag == true) {
+//         document.querySelector(".custom-list").style.display = "block";
+//         // document.querySelector(".custom-list").style.transitionDuration = "4s";
+//         flag = false;
 
-document.getElementById("sort").addEventListener("click", () => {
+//         icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+//     } else {
+//         document.querySelector(".custom-list").style.display = "none";
+//         flag = true;
+//         icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+
+//     }
+// })
+document.addEventListener("click", (evt) => {
     var icon = document.getElementById("sort");
-    if (flag == true) {
-        document.querySelector(".custom-list").style.display = "block";
-        // document.querySelector(".custom-list").style.transitionDuration = "4s";
-        flag = false;
-
-        icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
-    } else {
-        document.querySelector(".custom-list").style.display = "none";
-        flag = true;
-        icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
-
-    }
-})
+    let targetEl = evt.target; // clicked element      
+    do {
+        if (targetEl == icon) {
+            // This is a click inside, does nothing, just return.
+            icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            document.querySelector(".custom-list").style.display = "block";
+            document.getElementById("sort").innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+            return;
+        }
+        // Go up the DOM
+        targetEl = targetEl.parentNode;
+    } while (targetEl);
+    // This is a click outside.      
+    icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+    document.querySelector(".custom-list").style.display = "none";
+    
+});
 
 document.getElementById("filter1").addEventListener("click", () => {
     var icon1 = document.getElementById("filter1");
@@ -244,15 +251,16 @@ document.getElementById("filter3").addEventListener("click", () => {
     }
 })
 
-
+var newarr;
 let filterhtl = () => {
     var select = document.querySelector("#htl").innerText;
-    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    document.querySelector(".custom-trigger").innerText = "Price High to Low";
+    // var newarr = JSON.parse(localStorage.getItem("arrdata"));
     console.log(arr);
     newarr.sort(function (a, b) {
         return b.finalPrice - a.finalPrice;
     })
-    console.log(newarr);
+    // console.log(newarr);
     displaydata(newarr);
 }
 
@@ -270,7 +278,8 @@ let filterhtl = () => {
 
 let filterlth = () => {
     var select = document.querySelector("#lth").innerText;
-    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    // var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    document.querySelector(".custom-trigger").innerText = "Price Low to high";
     console.log(select);
     newarr.sort(function (a, b) {
         return a.finalPrice - b.finalPrice;
@@ -280,7 +289,8 @@ let filterlth = () => {
 }
 let filtermc = () => {
     var select = document.querySelector("#mc").innerText;
-    var newarr = JSON.parse(localStorage.getItem("arrdata"));
+    document.querySelector(".custom-trigger").innerText = "Most Cashback";
+    // var newarr = JSON.parse(localStorage.getItem("arrdata"));
     console.log(select);
     newarr.sort(function (a, b) {
         return b.cashbackSort - a.cashbackSort;
@@ -289,8 +299,189 @@ let filtermc = () => {
     displaydata(newarr);
 }
 let filtermatch = () => {
+    document.querySelector(".custom-trigger").innerText = "Best Match";
     displaydata(arr);
-    console.log(arr);
+    // console.log(arr);
+}
+
+let jewelry = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.department === "jewelry"
+    })
+    displaydata(newarr);
+}
+let ring = () => {
+
+    newarr = arr.filter(function (elem) {
+        return elem.category === "rings"
+    })
+    // console.log(newarr);
+    displaydata(newarr);
+}
+let earrings = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "earrings"
+    })
+    // console.log(newarr);
+    displaydata(newarr);
+}
+let necklaces = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "necklaces"
+    })
+    // console.log(newarr);
+    displaydata(newarr);
+}
+let health = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.department === "health & nutrition"
+    })
+    // console.log(newarr);
+    displaydata(newarr);
+}
+let vitamins = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "vitamins & supplements"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let weight = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "weight management"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let blood = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "blood sugar maintaince"
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+
+let beauty = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.department === "beauty"
+    })
+    // console.log(newarr);
+    displaydata(newarr);
+}
+let skin = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "skin care"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let face = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "face makeup"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let lip = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.category === "lip products"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let layered = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "layered"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let isotonix = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "isotonix"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let snap = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "snap"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let nutriclean = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "nutriclean"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let limiere = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "lumiere de vie"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let tls = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "tls"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let motives = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.seller === "motives cosmetics"
+    })
+    //  console.log(newarr);
+    displaydata(newarr);
+}
+let price1 = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice <= 30;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+let price2 = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice >= 30.01 && elem.finalPrice <= 40.00;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+let price3 = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice >= 40.01 && elem.finalPrice <= 75.00;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+let price4 = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice >= 75.01 && elem.finalPrice <= 125.00;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+let price5 = () => {
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice >= 125.01;
+    })
+    console.log(newarr);
+    displaydata(newarr);
+}
+
+let manualprice = () => {
+    let min = document.getElementById("minprice").value;
+    let max = document.getElementById("maxprice").value;
+    newarr = arr.filter(function (elem) {
+        return elem.finalPrice >= min && elem.finalPrice <= max;
+    })
+    console.log(newarr);
+    displaydata(newarr);
 }
 
 

@@ -15,7 +15,7 @@
             <span class="label">Sort:
                 <div class="custom">
                     <span class="custom-trigger">Best Match</span>
-                    <span id="sort"><i class="fa-solid fa-chevron-down"></i></span>
+                    <span id="sort"><i" class="fa-solid fa-chevron-down"></i></span>
                     <ul class="custom-list">
                         <li class="custom-option" id="bm" onclick="filtermatch()">Best Match</li>
                         <li class="custom-option" id="htl" onclick="filterhtl()">Price High to Low</li>
@@ -34,20 +34,20 @@
                     <span id="filter1"><i class="fa-solid fa-chevron-up"></i></span>
                 </div>
                 <div id="productfilter">
-                    <ul class="ul">Jewelry
-                        <li>Rings</li>
-                        <li>Earrings</li>
-                        <li>Necklaces</li>
+                    <ul class="ul"><span onclick="jewelry()">Jewelry</span>
+                        <li onclick="ring()">Rings</li>
+                        <li onclick="earrings()">Earrings</li>
+                        <li onclick="necklaces()">Necklaces</li>
                     </ul>
-                    <ul class="ul">Health & Nutrition
-                        <li>Vitamins & Supplements</li>
-                        <li>Weight Management</li>
-                        <li>Blood Sugar Maintaince</li>
+                    <ul class="ul"><span onclick="health()">Health & Nutrition</span>
+                        <li onclick="vitamins()">Vitamins & Supplements</li>
+                        <li onclick="weight()">Weight Management</li>
+                        <li onclick="blood()">Blood Sugar Maintaince</li>
                     </ul>
-                    <ul class="ul">Beauty
-                        <li>Skin Care</li>
-                        <li>Face Makeup</li>
-                        <li>Lip Products</li>
+                    <ul class="ul"><span onclick="beauty()">Beauty</span>
+                        <li onclick="skin()">Skin Care</li>
+                        <li onclick="face()">Face Makeup</li>
+                        <li onclick="lip()">Lip Products</li>
                     </ul>
                 </div>
             </div>
@@ -59,13 +59,13 @@
                 </div>
                 <div id="productfilter2">
                     <ul class="ul">
-                        <li>Layered</li>
-                        <li>Isotonix</li>
-                        <li>Snap</li>
-                        <li>Nutriclean</li>
-                        <li>Lumiere De Vie</li>
-                        <li>TLS</li>
-                        <li>Motives Cosmetics</li>
+                        <li onclick="layered()">Layered</li>
+                        <li onclick="isotonix()">Isotonix</li>
+                        <li onclick="snap()">Snap</li>
+                        <li onclick="nutriclean()">Nutriclean</li>
+                        <li onclick="limiere()">Lumiere De Vie</li>
+                        <li onclick="tls()">TLS</li>
+                        <li onclick="motives()">Motives Cosmetics</li>
                     </ul>
                 </div>
             </div>
@@ -77,16 +77,16 @@
                 </div>
                 <div id="productfilter3">
                     <ul class="ul">
-                        <li>$30.00 and Below</li>
-                        <li>$30.01 - $40.00</li>
-                        <li>$40.01 - $75.00</li>
-                        <li>$75.01 - $125.00</li>
-                        <li>$125.01 - Above</li>
+                        <li onclick="price1()">$30.00 and Below</li>
+                        <li onclick="price2()">$30.01 - $40.00</li>
+                        <li onclick="price3()">$40.01 - $75.00</li>
+                        <li onclick="price4()">$75.01 - $125.00</li>
+                        <li onclick="price5()">$125.01 - Above</li>
                     </ul>
                     <div id="price" class="classflexRow">
                         <input id="minprice" type="number" placeholder="Min">
                         <input id="maxprice" type="number" placeholder="Max">
-                        <button id="submitprice" type="submit"><i class="fa-solid fa-chevron-right"></i></button>
+                        <button onclick="manualprice()" id="submitprice" type="submit"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
