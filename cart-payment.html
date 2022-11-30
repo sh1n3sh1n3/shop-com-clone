@@ -72,7 +72,7 @@
       "vendor": "Sold by Isotonix®",
       "seller": "isotonix",
       "slashPrice": "205.35",
-      "finalPrice": "180.00",
+      "finalPrice": "220.00",
       "cashback": "$3.60 / 2%",
       "cashbackSort": "3.6",
       "shipping": "Free shipping with $99 orders",
@@ -87,13 +87,13 @@
     },
 
     {
-    "id": "1",
-      "name": "Isotonix® Daily Essentials Kit (Without Iron)",
+    "id": "2",
+      "name": " Essentials Kit (Without Iron) Tanmoy 2",
       "url": "https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=400x400",
       "vendor": "Sold by Isotonix®",
       "seller": "isotonix",
       "slashPrice": "205.35",
-      "finalPrice": "180.00",
+      "finalPrice": "160.00",
       "cashback": "$3.60 / 2%",
       "cashbackSort": "3.6",
       "shipping": "Free shipping with $99 orders",
@@ -110,108 +110,112 @@
     
 ]
 let count=0;
-display=(obj)=>{
-   
-    // grandtotal(obj.length);
-obj.map(({name,finalPrice,category,url,cashback})=>{
+let price = [];
 
-    let main_div=document.createElement("div");
-    main_div.setAttribute("id","main")
-    let img_div=document.createElement("div");
-    let img=document.createElement("img");
-    img.src=url;
-    img_div.append(img);
-
-    let title_div=document.createElement("div");
-    title_div.className="titleclass";
-    let title_head=document.createElement("h2");
-    title_head.textContent=name;
-    let price_val= document.createElement("h3");
-    price_val.textContent="$"+finalPrice;
-    let back=document.createElement("p");
-    back.textContent="+" + cashback+ " cashback";
-    let code_no=document.createElement("h4");
-    let code="#Y4G3"
-    code_no.textContent=code;
-    let cata=document.createElement("p");
-    cata.textContent=category;
-
-    let qty=document.createElement("h3");
-    qty.textContent="Quantity";
-    let select=document.createElement("select");
-    select.setAttribute("id","selected");
-    select.addEventListener("change",function(){
-        updateSubprice(finalPrice);
-    })
-    for(let i=1;i<11;i++){
-        let option=document.createElement("option");
-        option.textContent=i;
-        select.append(option);
+let displayTotal = (arr)=>{
+    let totalCount = 0;
+    for(let i of arr){
+        totalCount += i;
     }
-    let qtydiv=document.createElement("div");
-    qtydiv.append(qty,select);
-    qtydiv.className="qtyclass";
+    console.log(totalCount);
+    document.getElementById("grandt").innerText=totalCount;
+}
+display = (obj)=>{
+    
+        // grandtotal(obj.length);
+    obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
 
-    title_div.append(title_head,price_val,back,code_no,cata,qtydiv);
+        // console.log(ind);
+        let main_div=document.createElement("div");
+        main_div.setAttribute("id","main")
+        let img_div=document.createElement("div");
+        let img=document.createElement("img");
+        img.src=url;
+        img_div.append(img);
 
-   let button_div=document.createElement("div");
-   let removebtn=document.createElement("button");
-   removebtn.innerText="Remove";
-    button_div.append(removebtn);
+        let title_div=document.createElement("div");
+        title_div.className="titleclass";
+        let title_head=document.createElement("h2");
+        title_head.textContent=name;
+        let price_val= document.createElement("h3");
+        price_val.textContent="$"+finalPrice;
+        price.push(+finalPrice);
+        displayTotal(price);
+        let back=document.createElement("p");
+        back.textContent="+" + cashback+ " cashback";
+        let code_no=document.createElement("h4");
+        let code="#Y4G3"
+        code_no.textContent=code;
+        let cata=document.createElement("p");
+        cata.textContent=category;
 
-main_div.append(img_div,title_div,button_div);
-// <div id="store-total">
-//         <div>
-//             <p>Store total:</p>
-//         </div>
-//         <div><h3><span>00.00</span></h3></div>
-//     </div>
-let storetotal=document.createElement("div");
-storetotal.setAttribute("id","store-total");
-let storediv=document.createElement("div");
- let stp=document.createElement("p");
- stp.textContent="Store Total:";
- let subval=document.createElement("div");
- let valspan=document.createElement("h3");
- valspan.setAttribute("id","stprice");
- valspan.innerText=finalPrice;
- subval.append(valspan);
- storediv.append(stp);
- storetotal.append(storediv,subval);
-document.getElementById("cart-product").append(main_div,storetotal);
+        let qty=document.createElement("h3");
+        qty.textContent="Quantity";
+        let select=document.createElement("select");
+        select.setAttribute("id","selected");
+        select.addEventListener("change",function(){
 
-count+=(+finalPrice)*(+document.getElementById("selected").value)
-})
-document.getElementById("grandt").innerText=count;
+            valspan.innerText =+select.value * +finalPrice;
+            updateSubprice(ind, +select.value,  +finalPrice);
+        })
+        for(let i=1;i<11;i++){
+            let option=document.createElement("option");
+            option.textContent=i;
+            select.append(option);
+        }
+        let qtydiv=document.createElement("div");
+        qtydiv.append(qty,select);
+        qtydiv.className="qtyclass";
 
-// console.log(main_div);
+        title_div.append(title_head,price_val,back,code_no,cata,qtydiv);
 
-}   
+        let button_div=document.createElement("div");
+        let removebtn=document.createElement("button");
+        removebtn.innerText="Remove";
+        button_div.append(removebtn);
+
+        main_div.append(img_div,title_div,button_div);
+        
+        let storetotal=document.createElement("div");
+        storetotal.setAttribute("id","store-total");
+        let storediv=document.createElement("div");
+        let stp=document.createElement("p");
+        stp.textContent="Store Total:";
+        let subval=document.createElement("div");
+        let valspan=document.createElement("h3");
+        valspan.setAttribute("id","stprice");
+        valspan.innerText = price[ind];
+        subval.append(valspan);
+        storediv.append(stp);
+        storetotal.append(storediv,subval);
+        document.getElementById("cart-product").append(main_div,storetotal);
+
+        count+=(+finalPrice)*(+document.getElementById("selected").value)
+    })
+
+}  
+// displayTotal([0]);
 display(obj); 
-// updateSubprice();
-// increasing sub total
- function updateSubprice(price){
-let q=document.getElementById("selected").value;
-//  console.log(this.value);
-// console.log(price);
-let total=(+q)*(+price);
 
-console.log(total);
 
-document.getElementById("stprice").innerText=total;
-count+=(+q)*(+price);
-document.getElementById("grandt").innerText=count;
- }
+function updateSubprice(ind, qty, price_val){
+    price[ind] = qty*price_val;
+    console.log(price);
+    displayTotal(price);
+    // document.getElementById("stprice").innerText=total;
+    // count+=(+q)*(+price);
+    // document.getElementById("grandt").innerText=count;
+}
 
 // for( let i=0;i<2;i++){
 //     let a=document.getElementById("stprice").value;
-// console.log("fff",a);
+//     console.log("fff",a);
 // }
 
 // increasing sub total ends here
 
-// function grandtotal(){
-//     let count=0; 
-//     obj.map() 
-// }
+function grandtotal(){
+    let count=0; 
+    obj.map() 
+}
 </script>
