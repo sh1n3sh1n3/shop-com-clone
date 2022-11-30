@@ -170,7 +170,7 @@ h6 > img, h5 > img{
     margin-right: 10px;
     cursor: pointer;
 }
-#detail > h2{
+#detail > h2 {
     text-align: center;
     padding: 20px 0 10px;
     font-size: 25px;
@@ -196,4 +196,52 @@ h6 > img, h5 > img{
 }
 .descriptions-wrapper  img{
     width: 100%;
+}
+
+
+
+
+#likeProduct > h2{
+    text-align: center;
+    padding: 20px 0 10px;
+    font-size: 25px;
+}
+.showProduct{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* height: 300px; */
+    /* border: 1px solid red; */
+    background-color: #F0F1F7;
+    padding: 10px 0;
+    gap: 5px;
+}
+.showProduct > div{
+    /* border: 1px solid red; */
+    background-color: #fff;
+    padding: 10px;
+}
+.showProduct > div > img{
+    /* width: 90%; */
+    display: block;
+    margin: auto;
+}
+.showProduct > div > a{
+    color: black;
+    text-decoration: underline;
+    font-size: 14px;
+}
+.showProduct > div > p{
+    font-weight: bold;
+    margin: 0;
+}
+.showProduct > div > span{
+    font-size: 12px;
+    color: rgb(116, 114, 114);
+}
+.recomend{
+    grid-template-columns: 0.8fr 1.2fr 1.2fr 1.2fr 0.8fr;
+    justify-content: center;
+}
+.recomend >  div:first-child, .recomend >  div:last-child{
+    background-color: #F0F1F7;
 }
