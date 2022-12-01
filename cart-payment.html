@@ -41,8 +41,8 @@
             <p>or 4 interest-free payments of <span> $78.75</span> with <span id="sezzle-logo"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvT6H9nTPQz5iV1UTSTcIXxf2xm-2xNweadg&usqp=CAU" alt=""></span> <span id="se-text">Sezzleⓘ</span> </p>
         </div>
         <div id="zip-code">
-            <input id="code-input" type="text" placeholder="zip code">
-            <button id="shipping-btn">Estimate Shipping</button>
+            <input id="code-input" type="text" placeholder="Coupon code">
+            <button id="shipping-btn">Estimate Discount</button>
         </div>
         <button id="checkout">Proceed to Checkout</button>
         <div id="checkout-card">
@@ -57,74 +57,26 @@
 </body>
 </html>
 <script >
-    // let obj=JSON.parse(localStorage.getItem("idlistforcart"))||[];
 
-    let obj=[{
-    //  title:"Motives® Lip Kit",
-    //  price:000,
-    //  code:"#456",
-    //  catagory:"Romance",
-    //  url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
-
-    "id": "1",
-      "name": "Isotonix® Daily Essentials Kit (Without Iron)",
-      "url": "https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=400x400",
-      "vendor": "Sold by Isotonix®",
-      "seller": "isotonix",
-      "slashPrice": "205.35",
-      "finalPrice": "220.00",
-      "cashback": "$3.60 / 2%",
-      "cashbackSort": "3.6",
-      "shipping": "Free shipping with $99 orders",
-      "image1": "https://img.shop.com/Image/productbadges/glutenfree.svg",
-      "image2": "https://img.shop.com/Image/productbadges/nongmo.svg",
-      "image3": "https://img.shop.com/Image/productbadges/vegetarian.svg",
-      "image4": "https://img.shop.com/Image/productbadges/gmpstatement.svg",
-      "rating": "⭐⭐⭐⭐⭐(121)",
-      "department": "health & nutrition",
-      "category": "vitamins & supplements"
-
-    },
-
-    {
-    "id": "2",
-      "name": " Essentials Kit (Without Iron) Tanmoy 2",
-      "url": "https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=400x400",
-      "vendor": "Sold by Isotonix®",
-      "seller": "isotonix",
-      "slashPrice": "205.35",
-      "finalPrice": "160.00",
-      "cashback": "$3.60 / 2%",
-      "cashbackSort": "3.6",
-      "shipping": "Free shipping with $99 orders",
-      "image1": "https://img.shop.com/Image/productbadges/glutenfree.svg",
-      "image2": "https://img.shop.com/Image/productbadges/nongmo.svg",
-      "image3": "https://img.shop.com/Image/productbadges/vegetarian.svg",
-      "image4": "https://img.shop.com/Image/productbadges/gmpstatement.svg",
-      "rating": "⭐⭐⭐⭐⭐(121)",
-      "department": "health & nutrition",
-      "category": "vitamins & supplements"
-
-    },
-    
-    
-]
 let count=0;
 let price = [];
-
+let totalCount;
 let displayTotal = (arr)=>{
-    let totalCount = 0;
+    totalCount = 0;
     for(let i of arr){
         totalCount += i;
     }
     console.log(totalCount);
     document.getElementById("grandt").innerText=totalCount;
 }
-display = (obj)=>{
-    
-    document.getElementById("cart-product").innerHTML="";
-    obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
 
+display = (obj)=>{
+    price = [0];
+    document.getElementById("cart-product").innerHTML="";
+
+    // console.log(obj.length);
+    obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
+        
         // console.log(ind);
         let main_div=document.createElement("div");
         main_div.setAttribute("id","main")
@@ -139,8 +91,9 @@ display = (obj)=>{
         title_head.textContent=name;
         let price_val= document.createElement("h3");
         price_val.textContent="$"+finalPrice;
-        price.push(+finalPrice);
-        displayTotal(price);
+        // price.push(+finalPrice);
+        price[ind] = +finalPrice;
+        
         let back=document.createElement("p");
         back.textContent="+" + cashback+ " cashback";
         let code_no=document.createElement("h4");
@@ -174,6 +127,7 @@ display = (obj)=>{
         removebtn.innerText="Remove";
         removebtn.addEventListener("click",function(){
             removecart(ind);
+
         })
         button_div.append(removebtn);
 
@@ -193,29 +147,41 @@ display = (obj)=>{
         storetotal.append(storediv,subval);
         document.getElementById("cart-product").append(main_div,storetotal);
 
-        count+=(+finalPrice)*(+document.getElementById("selected").value)
     })
+    displayTotal(price);
+    console.log(obj);
+}
 
-}  
-// displayTotal([0]);
-display(obj); 
 
+let arrOfId = JSON.parse(localStorage.getItem("idlistforcart"));
+console.log(arrOfId);
+
+let dataArr = [];
+let arrOfIdData = async (arr)=>{
+    await arr.map((elem, ind)=>{
+        fetch(`https://shop-json-server.onrender.com/users/${elem}`)
+        .then((resp)=>{
+            return resp.json();
+        })
+        .then((mydata)=>{
+            // console.log(mydata);
+            dataArr[ind] = mydata;
+        })
+        .then(()=>{
+            display(dataArr);
+        })
+    })
+    
+    
+}
+
+arrOfIdData(arrOfId);
 
 function updateSubprice(ind, qty, price_val){
     price[ind] = qty*price_val;
     console.log(price);
     displayTotal(price);
-    // document.getElementById("stprice").innerText=total;
-    // count+=(+q)*(+price);
-    // document.getElementById("grandt").innerText=count;
 }
-
-// for( let i=0;i<2;i++){
-//     let a=document.getElementById("stprice").value;
-//     console.log("fff",a);
-// }
-
-// increasing sub total ends here
 
 function grandtotal(){
     let count=0; 
@@ -223,9 +189,41 @@ function grandtotal(){
 }
 
 function removecart(ind){
-    obj.splice(ind,1);
-    // JSON.parse(localStorage.getItem("idlistforcart"))
-    localStorage.setItem("idlistforcart",JSON.stringify(obj));
-    display(obj); 
+    dataArr.splice(ind,1);
+    price.splice(ind, 1);
+    arrOfId.splice(ind, 1);
+
+    localStorage.setItem("idlistforcart",JSON.stringify(arrOfId));
+    display(dataArr); 
 }
+
+let aferCoupon = totalCount;
+document.getElementById("shipping-btn").addEventListener("click",()=>{
+    let couponVal = document.getElementById("code-input").value;
+
+    let Coupon = totalCount* 70 /  100;
+
+    if(couponVal==="masai30" && Coupon != aferCoupon){
+        alert("Coupon Code Applied!");
+        aferCoupon = Coupon;
+        document.getElementById("grandt").innerText= Coupon;
+    }
+    else if(couponVal==="masai30" && Coupon === aferCoupon){
+        alert("Coupon code already applied!")
+    }
+    else{
+        alert("Invalid code")
+    }
+    console.log(aferCoupon);
+})
+
+
+
+
+
+
+
+
+
+
 </script>
