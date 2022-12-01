@@ -1,7 +1,7 @@
 
 
 let fetchdata = async () => {
-    let response = await fetch(`http://localhost:3000/list`);
+    let response = await fetch(`http://localhost:3000/users`);
     let data = await response.json();
     // console.log(data);
     arr = data
