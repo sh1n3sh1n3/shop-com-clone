@@ -385,16 +385,16 @@ input::-webkit-inner-spin-button {
     color: rgb(108, 210, 210);
     /* background-color: #f0f1f7; */
 }
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 1000px) and (max-width: 1500px) {
     #container {
           grid-template-columns: repeat(3, 1fr);
     }
     #leftPortion{
-        width: 15%;
+        width: 22%;
     }
 }
 
-@media only screen and (min-width: 700px) and (max-width: 1050px) {
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
     #container {
           grid-template-columns: repeat(2, 1fr);
     }
