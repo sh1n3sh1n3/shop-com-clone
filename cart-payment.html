@@ -20,12 +20,12 @@
     <div id="cart-product"> 
 
     </div>
-    <div id="store-total">
+    <!-- <div id="store-total">
         <div>
             <p>Store total:</p>
         </div>
         <div><h3><span>00.00</span></h3></div>
-    </div>
+    </div> -->
       
     </div>
     <div id="payment-div">
@@ -34,8 +34,8 @@
         <div id="div-subtitle">
             <div><p>Subtotal:</p></div>
 
-            <!-- append price -->
-            <div id="price-div"><p><span>00.00</span></p></div>
+           
+            <div id="price-div"><p><span id="grandt">00.00</span></p></div>
         </div>
         <div id="para-div">
             <p>or 4 interest-free payments of <span> $78.75</span> with <span id="sezzle-logo"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvT6H9nTPQz5iV1UTSTcIXxf2xm-2xNweadg&usqp=CAU" alt=""></span> <span id="se-text">Sezzleⓘ</span> </p>
@@ -57,55 +57,165 @@
 </body>
 </html>
 <script >
+    // let obj=JSON.parse(localStorage.getItem("idlistforcart"))||[];
+
     let obj=[{
-     title:"Motives® Lip Kit",
-     price:000,
-     code:"#456",
-     catagory:"Romance",
-     url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
+    //  title:"Motives® Lip Kit",
+    //  price:000,
+    //  code:"#456",
+    //  catagory:"Romance",
+    //  url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
+
+    "id": "1",
+      "name": "Isotonix® Daily Essentials Kit (Without Iron)",
+      "url": "https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=400x400",
+      "vendor": "Sold by Isotonix®",
+      "seller": "isotonix",
+      "slashPrice": "205.35",
+      "finalPrice": "220.00",
+      "cashback": "$3.60 / 2%",
+      "cashbackSort": "3.6",
+      "shipping": "Free shipping with $99 orders",
+      "image1": "https://img.shop.com/Image/productbadges/glutenfree.svg",
+      "image2": "https://img.shop.com/Image/productbadges/nongmo.svg",
+      "image3": "https://img.shop.com/Image/productbadges/vegetarian.svg",
+      "image4": "https://img.shop.com/Image/productbadges/gmpstatement.svg",
+      "rating": "⭐⭐⭐⭐⭐(121)",
+      "department": "health & nutrition",
+      "category": "vitamins & supplements"
 
     },
+
     {
-        title:"Motives® Lip Kit",
-     price:000,
-     code:"#456",
-     catagory:"Romance",
-     url:"https://img.shop.com/Image/240000/243300/243380/products/51855440Romance__100x100__.jpg",
-    }
+    "id": "2",
+      "name": " Essentials Kit (Without Iron) Tanmoy 2",
+      "url": "https://img.shop.com/Image/210000/214100/214196/products/701199621.jpg?plain&size=400x400",
+      "vendor": "Sold by Isotonix®",
+      "seller": "isotonix",
+      "slashPrice": "205.35",
+      "finalPrice": "160.00",
+      "cashback": "$3.60 / 2%",
+      "cashbackSort": "3.6",
+      "shipping": "Free shipping with $99 orders",
+      "image1": "https://img.shop.com/Image/productbadges/glutenfree.svg",
+      "image2": "https://img.shop.com/Image/productbadges/nongmo.svg",
+      "image3": "https://img.shop.com/Image/productbadges/vegetarian.svg",
+      "image4": "https://img.shop.com/Image/productbadges/gmpstatement.svg",
+      "rating": "⭐⭐⭐⭐⭐(121)",
+      "department": "health & nutrition",
+      "category": "vitamins & supplements"
+
+    },
+    
+    
 ]
-display=(obj)=>{
-obj.map(({title,price,code,catagory,url})=>{
-    let main_div=document.createElement("div");
-    main_div.setAttribute("id","main")
-    let img_div=document.createElement("div");
-    let img=document.createElement("img");
-    img.src=url;
-    img_div.append(img);
+let count=0;
+let price = [];
 
-    let title_div=document.createElement("div");
-    let title_head=document.createElement("h2");
-    title_head.textContent=title;
-    let price_val= document.createElement("h3");
-    price_val.textContent=price;
-    let code_no=document.createElement("h4");
-    code_no.textContent=code;
-    let cata=document.createElement("p");
-    cata.textContent=catagory;
+let displayTotal = (arr)=>{
+    let totalCount = 0;
+    for(let i of arr){
+        totalCount += i;
+    }
+    console.log(totalCount);
+    document.getElementById("grandt").innerText=totalCount;
+}
+display = (obj)=>{
+    
+        // grandtotal(obj.length);
+    obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
 
-    let qty=document.createElement("h3");
-    qty.textContent="Quentity";
-    title_div.append(title_head,price_val,code_no,cata);
+        // console.log(ind);
+        let main_div=document.createElement("div");
+        main_div.setAttribute("id","main")
+        let img_div=document.createElement("div");
+        let img=document.createElement("img");
+        img.src=url;
+        img_div.append(img);
 
-   let button_div=document.createElement("div");
-   let removebtn=document.createElement("button");
-   removebtn.innerText="Remove";
-    button_div.append(removebtn);
+        let title_div=document.createElement("div");
+        title_div.className="titleclass";
+        let title_head=document.createElement("h2");
+        title_head.textContent=name;
+        let price_val= document.createElement("h3");
+        price_val.textContent="$"+finalPrice;
+        price.push(+finalPrice);
+        displayTotal(price);
+        let back=document.createElement("p");
+        back.textContent="+" + cashback+ " cashback";
+        let code_no=document.createElement("h4");
+        let code="#Y4G3"
+        code_no.textContent=code;
+        let cata=document.createElement("p");
+        cata.textContent=category;
 
-main_div.append(img_div,title_div,button_div);
-document.getElementById("cart-product").append(main_div);
-})
+        let qty=document.createElement("h3");
+        qty.textContent="Quantity";
+        let select=document.createElement("select");
+        select.setAttribute("id","selected");
+        select.addEventListener("change",function(){
 
-console.log(main_div);
-}   
+            valspan.innerText =+select.value * +finalPrice;
+            updateSubprice(ind, +select.value,  +finalPrice);
+        })
+        for(let i=1;i<11;i++){
+            let option=document.createElement("option");
+            option.textContent=i;
+            select.append(option);
+        }
+        let qtydiv=document.createElement("div");
+        qtydiv.append(qty,select);
+        qtydiv.className="qtyclass";
+
+        title_div.append(title_head,price_val,back,code_no,cata,qtydiv);
+
+        let button_div=document.createElement("div");
+        let removebtn=document.createElement("button");
+        removebtn.innerText="Remove";
+        button_div.append(removebtn);
+
+        main_div.append(img_div,title_div,button_div);
+        
+        let storetotal=document.createElement("div");
+        storetotal.setAttribute("id","store-total");
+        let storediv=document.createElement("div");
+        let stp=document.createElement("p");
+        stp.textContent="Store Total:";
+        let subval=document.createElement("div");
+        let valspan=document.createElement("h3");
+        valspan.setAttribute("id","stprice");
+        valspan.innerText = price[ind];
+        subval.append(valspan);
+        storediv.append(stp);
+        storetotal.append(storediv,subval);
+        document.getElementById("cart-product").append(main_div,storetotal);
+
+        count+=(+finalPrice)*(+document.getElementById("selected").value)
+    })
+
+}  
+// displayTotal([0]);
 display(obj); 
+
+
+function updateSubprice(ind, qty, price_val){
+    price[ind] = qty*price_val;
+    console.log(price);
+    displayTotal(price);
+    // document.getElementById("stprice").innerText=total;
+    // count+=(+q)*(+price);
+    // document.getElementById("grandt").innerText=count;
+}
+
+// for( let i=0;i<2;i++){
+//     let a=document.getElementById("stprice").value;
+//     console.log("fff",a);
+// }
+
+// increasing sub total ends here
+
+function grandtotal(){
+    let count=0; 
+    obj.map() 
+}
 </script>
