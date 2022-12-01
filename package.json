@@ -1,23 +1,15 @@
 {
-  "name": "shop.com-clone",
+  "name": "mock-server-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "product.js",
+  "description": "mock server app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kajalyadavgithub/Shop.com-clone.git"
+    "start": "node server.js" 
   },
   "keywords": [],
-  "author": "",
+  "author": "Denish",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kajalyadavgithub/Shop.com-clone/issues"
-  },
-  "homepage": "https://github.com/kajalyadavgithub/Shop.com-clone#readme",
   "dependencies": {
-    "json-server": "^0.17.1"
+    "json-server": "^0.17.0"
   }
 }
