@@ -122,7 +122,7 @@ let displayTotal = (arr)=>{
 }
 display = (obj)=>{
     
-        // grandtotal(obj.length);
+    document.getElementById("cart-product").innerHTML="";
     obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
 
         // console.log(ind);
@@ -172,6 +172,9 @@ display = (obj)=>{
         let button_div=document.createElement("div");
         let removebtn=document.createElement("button");
         removebtn.innerText="Remove";
+        removebtn.addEventListener("click",function(){
+            removecart(ind);
+        })
         button_div.append(removebtn);
 
         main_div.append(img_div,title_div,button_div);
@@ -217,5 +220,12 @@ function updateSubprice(ind, qty, price_val){
 function grandtotal(){
     let count=0; 
     obj.map() 
+}
+
+function removecart(ind){
+    obj.splice(ind,1);
+    // JSON.parse(localStorage.getItem("idlistforcart"))
+    localStorage.setItem("idlistforcart",JSON.stringify(obj));
+    display(obj); 
 }
 </script>
