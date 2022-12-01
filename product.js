@@ -1,7 +1,7 @@
 
 
 let fetchdata = async () => {
-    let response = await fetch(`http://localhost:3000/users`);
+    let response = await fetch(`https://shop-json-server.onrender.com/users`);
     let data = await response.json();
     // console.log(data);
     arr = data
@@ -79,9 +79,13 @@ let displaydata = (data) => {
         ///////////////////////////////////////////////
 
         var productName = document.createElement("h1");
+        productName.setAttribute("id", "productName");
         productName.innerText = list.name;
         productName.style.fontSize = "16px";
         productName.style.minHeight = "50px";
+        productName.addEventListener("click", () => {
+            gotosingleproduct(list);
+        })
         // console.log(productName);
         // console.log(list.name);
         ///////////////////////////////////////////////
@@ -135,6 +139,10 @@ let displaydata = (data) => {
         var seedetail = document.createElement("button");
         seedetail.setAttribute("id", "seedetail");
         seedetail.innerText = "See Details"
+        seedetail.addEventListener("click", () => {
+            gotosingleproduct(list);
+            
+        })
 
         var addtocart = document.createElement("button");
         addtocart.setAttribute("id", "addtocart");
@@ -163,9 +171,23 @@ let displaydata = (data) => {
 
 function addcart(list) {
     var idlist = JSON.parse(localStorage.getItem("idlistforcart")) || [];
-    idlist.push(list.id);
-    console.log(idlist);
-    localStorage.setItem("idlistforcart", JSON.stringify(idlist));
+    if(!idlist.includes(list.id)){
+        idlist.push(list.id);
+        console.log(idlist);
+        alert("Product is added in the cart.");
+        localStorage.setItem("idlistforcart", JSON.stringify(idlist));
+    } else {
+        alert("Product is already present in the cart.");
+    }
+    
+    
+}
+function gotosingleproduct(list) {
+    var showlist = [];
+    showlist.push(list.id);
+    console.log(showlist);
+    localStorage.setItem("productshowlist", JSON.stringify(showlist));
+    window.location.href = "singleProduct.html";
 }
 
 var flag = true;
@@ -438,50 +460,51 @@ let motives = () => {
     //  console.log(newarr);
     displaydata(newarr);
 }
+let newarr2;
 let price1 = () => {
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice <= 30;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 let price2 = () => {
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice >= 30.01 && elem.finalPrice <= 40.00;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 let price3 = () => {
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice >= 40.01 && elem.finalPrice <= 75.00;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 let price4 = () => {
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice >= 75.01 && elem.finalPrice <= 125.00;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 let price5 = () => {
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice >= 125.01;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 
 let manualprice = () => {
     let min = document.getElementById("minprice").value;
     let max = document.getElementById("maxprice").value;
-    newarr = arr.filter(function (elem) {
+    newarr2 = newarr.filter(function (elem) {
         return elem.finalPrice >= min && elem.finalPrice <= max;
     })
     console.log(newarr);
-    displaydata(newarr);
+    displaydata(newarr2);
 }
 
 
