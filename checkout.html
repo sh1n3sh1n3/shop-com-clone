@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="checkout.css" />
+  </head>
+  <body>
+    <div id="heading">
+      <div id="title">
+        <h1>Checkout</h1>
+      </div>
+      <div>
+        <h2>Order Total:<span id="tprice">00</span></h2>
+      </div>
+    </div>
+    <div id="buttonadd">
+      <button id="add"><a href="./checkout.html"> Address</a></button>
+      <!-- <button>Shipping</button> -->
+      <button><a href="./payment.html" id="anchor"> Payment</a></button>
+    </div>
+    <hr id="hori" />
+    <div id="addcontainer">
+      <div id="left">
+        <h3>Shipping Address:</h3>
+
+        <form action="submit" id="save">
+          <input type="text" placeholder="Name" id="name" />
+          <input type="text" placeholder="Mobile no." id="mobile" />
+          <input type="text" placeholder="Pincode" id="pincode" />
+          <input type="text" placeholder="City" id="city" />
+          <input type="text" placeholder="State" id="state" />
+          <input type="text" placeholder="Flat no." id="flat" />
+          <button id="submit-form">Submit</button>
+        </form>
+      </div>
+      <div id="right">
+        <h2>Order Summary</h2>
+        <hr />
+        <div id="order">
+          <div><h3>Order Total:</h3></div>
+
+          <div>
+            <h3 id="ordertotalval"></h3>
+          </div>
+        </div>
+        <hr />
+        <button id="continue-check">
+          <a href="./payment.html">Continue Checkout</a>
+        </button>
+        <p id="paracheck">
+          By clicking continue, you agree to the SHOP.COM <br />
+          Terms of Use and Privacy Policy.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let local = 200;
+  document.getElementById("tprice").innerText = " " + local;
+  document.getElementById("ordertotalval").innerText = " " + local;
+  // let local=JSON.parse(localStorage.getItem("str"))||0;
+  document.querySelector("#submit-form").addEventListener("click", save);
+
+  function save() {
+    event.preventDefault();
+    let obj = {
+      name: document.getElementById("name").value,
+      mobile: document.getElementById("mobile").value,
+      pincode: document.getElementById("pincode").value,
+      city: document.getElementById("city").value,
+      state: document.getElementById("state").value,
+      flat: document.getElementById("flat").value,
+    };
+    localStorage.setItem("details", JSON.stringify(obj));
+
+    // window.href=""
+  }
+</script>
