@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="payment.css" />
+  </head>
+  <body>
+    <div id="heading">
+      <div id="title">
+        <h1>Checkout</h1>
+      </div>
+      <div>
+        <h2>Order Total:<span id="tprice">00</span></h2>
+      </div>
+    </div>
+    <div id="buttonadd">
+      <button id="add"><a href="./checkout.html"> Address</a></button>
+      <!-- <button>Shipping</button> -->
+      <button><a href="./payment.html" id="anchor"> Payment</a></button>
+    </div>
+    <hr id="hori" />
+    <div id="addcontainer">
+      <div id="left">
+        <!-- left div -->
+        <p id="left1">Select Payment Method</p>
+        <ul class="list-group" id="left2">
+          <li class="list-group-item" id="left3">
+            <input type="radio" />
+            <p>Enter Payment Method</p>
+            <img
+              src="https://img.shop.com/Image/local/images/cc/amex.jpg
+       "
+              alt=""
+            />
+            <img
+              src="https://img.shop.com/Image/local/images/cc/discover.jpg"
+              alt=""
+            />
+            <img
+              src="	https://img.shop.com/Image/local/images/cc/mastercard.png"
+              alt=""
+            />
+            <img
+              src="	https://img.shop.com/Image/local/images/cc/visa.jpg"
+              alt=""
+            />
+          </li>
+          <li class="list-group-item" id="left4">
+            <input type="radio" />
+            <img
+              src="https://bitpay.com/cdn/merchant-resources/bitpay-accepted-card-group.svg
+       "
+              alt=""
+            />
+          </li>
+          <li class="list-group-item" id="left5">
+            <img
+              src="https://img.shop.com/Image/local/images/cc/SezzlePaymentBtn_Small-purple.svg"
+              alt=""
+            />
+          </li>
+          <li class="list-group-item" id="left6">
+            <img
+              src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png"
+              alt=""
+            />
+          </li>
+          <li class="list-group-item" id="left7">
+            <img
+              src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/ppcredit_MD_BNPOT_1x.png"
+              alt=""
+            />
+          </li>
+          <li class="list-group-item" id="left8">
+            <img
+              src="https://src.mastercard.com/assets/img/btn/src_chk_btn_147x034px.svg?locale=en_us&paymentmethod=master,visa,discover,amex&checkoutid=a4a6w4v6h7cg0iaijxn0j1iaoelnus5936"
+              alt=""
+            />
+          </li>
+        </ul>
+        <hr id="left 9" />
+        <div id="bottom">
+          <div id="bottom-left">
+            <p id="bottom-left1">Shipping Address</p>
+          </div>
+          <div id="bottom-right">
+            <!-- <p id="bottom-right1">Coupan/Gift Card</p> -->
+            <!-- <p id="bottom-right2">Coupon</p> -->
+            <!-- <div id="bottom-right3">
+              <input
+                id="bottom-right3a"
+                font-style="italic"
+                type="text"
+                placeholder="Coupon Code"
+              />
+              <button id="bottom-right3b">Apply</button>
+            </div> -->
+            <!-- <p id="bottom-right40">Gift Card</p>
+            <div id="bottom-right4">
+              <input
+                id="bottom-right4a"
+                font-style="italic"
+                type="text"
+                placeholder="Gift card number"
+              /> -->
+              <!-- <button id="bottom-right4b">Apply</button> -->
+            <!-- </div> -->
+            <!-- <p id="bottom-right5">Pin:</p>
+            <div id="bottom-right6">
+              <input
+                id="bottom-right6a"
+                font-style="italic"
+                type="text"
+                placeholder="Pin"
+              />
+              <button id="bottom-right6b">Apply</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <!-- left div -->
+
+      <div id="right">
+        <h2>Order Summary</h2>
+        <hr />
+        <div id="order">
+          <div><h3>Order Total:</h3></div>
+
+          <div>
+            <h3 id="ordertotalval">00</h3>
+          </div>
+        </div>
+        <div id="discount">
+          <div><h3>Discount:</h3></div>
+          <div><h3 id="disprice">00</h3></div>
+        </div>
+        <hr id="dishr" />
+        <div id="newprice">
+          <div id="pay"><h3>Price to pay:</h3></div>
+          <div><h3 id="couponprice">00</h3></div>
+        </div>
+        <hr />
+        <button id="continue-check">Place Order</button>
+        <p id="paracheck">Let us know how we are doing Send Feedback.</p>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let local = 200;
+  //     // let local=JSON.parse(localStorage.getItem("str"))||0;
+  document.getElementById("tprice").innerText = " " + "$" + local;
+  document.getElementById("ordertotalval").innerText = " " + "$" + local;
+  document.getElementById("couponprice").innerText = " " + "$" + local;
+
+//   document.getElementById("bottom-right3b").addEventListener("click", funcode);
+//   function funcode(event) {
+//     event.preventDefault();
+//     let ccode = document.getElementById("bottom-right3a").value;
+//     if (ccode == "masai30") {
+//       console.log("object");
+//       document.getElementById("couponprice").innerText = "$" + 0.7 * +local;
+//       document.getElementById("disprice").innerText = "-" + "$" + 0.3 * +local;
+//     }
+//   }
+  document.getElementById("continue-check").addEventListener("click", funalert);
+
+  function funalert() {
+    alert("Your order has been successfully placed!!");
+    // window.location.href=""
+  }
+//   {
+//     "name": "deny",
+//     "mobile": "98989898",
+//     "pincode": "454545",
+//     "city": "pune",
+//     "state": "maha",
+//     "flat": "302"
+// }
+  // append address
+  let details = JSON.parse(localStorage.getItem("details"));
+  console.log(details);
+  let box4 = document.createElement("div");
+  box4.id = "box4";
+  
+
+  let name = document.createElement("h3");
+  name.innerText = details.name;
+  name.id = "name";
+
+  let mob = document.createElement("h3");
+  mob.innerText = details.mobile;
+  mob.id = "mobile";
+
+  let pincode = document.createElement("h3");
+  pincode.innerText = details.pincode;
+  pincode.id = "pincode";
+
+  let city = document.createElement("h3");
+  city.innerText = details.city;
+  city.id = "cities";
+
+  let state = document.createElement("h3");
+  state.innerText = details.state;
+  state.id = "state";
+
+  let flat = document.createElement("h3");
+  flat.innerText = details.flat;
+  flat.id = "flat";
+
+  box4.append(name,mob,pincode,city,state,flat);
+  document.getElementById("bottom-left").append(box4);
+</script>

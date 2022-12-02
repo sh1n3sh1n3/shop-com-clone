@@ -1,0 +1,122 @@
+#heading{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    /* background-color: aqua; */
+     color: rgb(32,35,107);
+}
+#addcontainer{
+    display: flex;
+    justify-content: space-between;
+}
+#buttonadd{
+    margin: 30px;
+    /* margin-top: 10px; */
+}
+#buttonadd button{
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    /* background-color: ; */
+    font-weight: bold
+}
+#left {
+    /* border:2px solid black; */
+    width: 50%;
+
+   
+}
+#right{
+    /* border:2px solid black;  */
+    width: 40%;
+    background-color:rgb(240,241,247);
+    margin-top: 20px;
+}
+#left form{
+    /* background-color: aqua; */
+     margin-left: 90px; 
+     margin-right: 100px;
+    /* margin: auto; */
+    background-color:rgb(240,241,247);
+    padding: 30px;
+   
+}
+#left input{
+    padding: 20px;
+    width: 250px;
+    display: block;
+    margin-top: 20px;
+    margin-left: 70px;
+    border-radius: 10px;
+    border: none;
+    /* background-color: rgb(235, 248, 248); */
+    
+
+}
+#submit-form{
+    padding: 17px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(32,35,107);
+    margin-top: 40px;
+    margin-left: 150px;
+    
+}
+#hori{
+    width: 90%;
+    margin: auto;
+}
+#continue-check{
+    padding: 17px;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(32,35,107);
+    margin-top: 20px;
+    margin-left: 120px;
+   
+}
+#continue-check a{
+    text-decoration: none;
+    color: white;
+}
+#right h2{
+    margin: 30px;
+}
+#left h3{
+    margin: 20px;
+}
+#add{
+    background-color: black;
+    color: white;
+
+    
+}
+#add a{
+    text-decoration: none;
+    color: white;
+}
+#anchor{
+    text-decoration: none;
+    color: black;
+}
+
+hr{
+    width: 450px;
+    margin: 20px;
+}
+#order{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+#order h3{
+    margin: 30px;
+}
+#paracheck{
+    text-align: center;
+    margin: 20px;
+}
