@@ -60,8 +60,11 @@
 </html>
 <script>
   let local = 200;
-  document.getElementById("tprice").innerText = " " + local;
-  document.getElementById("ordertotalval").innerText = " " + local;
+  let finelMoney = JSON.parse(localStorage.getItem("finelPrice"));
+  console.log(finelMoney);
+
+  document.getElementById("tprice").innerText = " " + finelMoney;
+  document.getElementById("ordertotalval").innerText = " " + finelMoney;
   // let local=JSON.parse(localStorage.getItem("str"))||0;
   document.querySelector("#submit-form").addEventListener("click", save);
 

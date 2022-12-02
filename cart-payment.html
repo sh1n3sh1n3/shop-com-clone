@@ -1,227 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./cart-payment.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./cart-payment.css" />
+  </head>
+  <body>
     <h1 id="heading-cart">Your Cart</h1>
     <div id="cart-payment-div">
-    <div id="shipment-div">
+      <div id="shipment-div">
         <div class="h2-div"><h2>Shipment from Cutter & Buck</h2></div>
-      <div id="learn-div">
-        <i class="fa-solid fa-truck"></i><p><span>Add $71.05 </span>in Market America products to qualify for <span>Free Shipping!</span><a href="">Learn More</a> </p>
-    </div>
+        <div id="learn-div">
+          <i class="fa-solid fa-truck"></i>
+          <p>
+            <span>Add $71.05 </span>in Market America products to qualify for
+            <span>Free Shipping!</span><a href="">Learn More</a>
+          </p>
+        </div>
 
-    <!-- append add to cart products -->
-    <div id="cart-product"> 
-
-    </div>
-    <!-- <div id="store-total">
+        <!-- append add to cart products -->
+        <div id="cart-product"></div>
+        <!-- <div id="store-total">
         <div>
             <p>Store total:</p>
         </div>
         <div><h3><span>00.00</span></h3></div>
     </div> -->
-      
-    </div>
-    <div id="payment-div">
-       
-        <div class="h2-div"> <h2>Order Total</h2></div>
+      </div>
+      <div id="payment-div">
+        <div class="h2-div"><h2>Order Total</h2></div>
         <div id="div-subtitle">
-            <div><p>Subtotal:</p></div>
+          <div><p>Subtotal:</p></div>
 
-           
-            <div id="price-div"><p><span id="grandt">00.00</span></p></div>
+          <div id="price-div">
+            <p><span id="grandt">00.00</span></p>
+          </div>
         </div>
         <div id="para-div">
-            <p>or 4 interest-free payments of <span> $78.75</span> with <span id="sezzle-logo"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvT6H9nTPQz5iV1UTSTcIXxf2xm-2xNweadg&usqp=CAU" alt=""></span> <span id="se-text">Sezzleⓘ</span> </p>
+          <p>
+            or 4 interest-free payments of <span> $78.75</span> with
+            <span id="sezzle-logo">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvT6H9nTPQz5iV1UTSTcIXxf2xm-2xNweadg&usqp=CAU"
+                alt=""
+            /></span>
+            <span id="se-text">Sezzleⓘ</span>
+          </p>
         </div>
         <div id="zip-code">
-            <input id="code-input" type="text" placeholder="Coupon code">
-            <button id="shipping-btn">Estimate Discount</button>
+          <input id="code-input" type="text" placeholder="Coupon code" />
+          <button id="shipping-btn">Estimate Discount</button>
         </div>
         <button id="checkout">Proceed to Checkout</button>
         <div id="checkout-card">
-            <p id="checkout-para">or checkout with:</p>
-            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBruR0EDIS7IV0QVnT08qljzTPWe2tV1mf9A&usqp=CAU" alt=""></button><br>
-            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnFEmcR5xO7MYeIOG06op5H_tZEMrJD5jFg&usqp=CAU" alt=""></button><br>
-            <button class="checkout-btn"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0FyJqdkSYeLMEJGPbtS0geAZk6reEBRvuA&usqp=CAU" alt=""></button><br>
-
+          <p id="checkout-para">or checkout with:</p>
+          <button class="checkout-btn">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBruR0EDIS7IV0QVnT08qljzTPWe2tV1mf9A&usqp=CAU"
+              alt=""
+            /></button
+          ><br />
+          <button class="checkout-btn">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnFEmcR5xO7MYeIOG06op5H_tZEMrJD5jFg&usqp=CAU"
+              alt=""
+            /></button
+          ><br />
+          <button class="checkout-btn">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0FyJqdkSYeLMEJGPbtS0geAZk6reEBRvuA&usqp=CAU"
+              alt=""
+            /></button
+          ><br />
         </div>
+      </div>
     </div>
-</div>
-</body>
+  </body>
 </html>
-<script >
+<script>
+  let count = 0;
+  let price = [];
+  var totalCount;
 
-let count=0;
-let price = [];
-let totalCount;
-let displayTotal = (arr)=>{
+  let displayTotal = (arr) => {
     totalCount = 0;
-    for(let i of arr){
-        totalCount += i;
+    for (let i of arr) {
+      totalCount += i;
     }
     console.log(totalCount);
-    document.getElementById("grandt").innerText=totalCount;
-}
+    localStorage.setItem("finelPrice", JSON.stringify(totalCount));
+    document.getElementById("grandt").innerText = totalCount;
+  };
 
-display = (obj)=>{
+  display = (obj) => {
     price = [0];
-    document.getElementById("cart-product").innerHTML="";
+    document.getElementById("cart-product").innerHTML = "";
 
     // console.log(obj.length);
-    obj.map(({name,finalPrice,category,url,cashback}, ind)=>{
-        
-        // console.log(ind);
-        let main_div=document.createElement("div");
-        main_div.setAttribute("id","main")
-        let img_div=document.createElement("div");
-        let img=document.createElement("img");
-        img.src=url;
-        img_div.append(img);
+    obj.map(({ name, finalPrice, category, url, cashback }, ind) => {
+      // console.log(ind);
+      let main_div = document.createElement("div");
+      main_div.setAttribute("id", "main");
+      let img_div = document.createElement("div");
+      let img = document.createElement("img");
+      img.src = url;
+      img_div.append(img);
 
-        let title_div=document.createElement("div");
-        title_div.className="titleclass";
-        let title_head=document.createElement("h2");
-        title_head.textContent=name;
-        let price_val= document.createElement("h3");
-        price_val.textContent="$"+finalPrice;
-        // price.push(+finalPrice);
-        price[ind] = +finalPrice;
-        
-        let back=document.createElement("p");
-        back.textContent="+" + cashback+ " cashback";
-        let code_no=document.createElement("h4");
-        let code="#Y4G3"
-        code_no.textContent=code;
-        let cata=document.createElement("p");
-        cata.textContent=category;
+      let title_div = document.createElement("div");
+      title_div.className = "titleclass";
+      let title_head = document.createElement("h2");
+      title_head.textContent = name;
+      let price_val = document.createElement("h3");
+      price_val.textContent = "$" + finalPrice;
+      // price.push(+finalPrice);
+      price[ind] = +finalPrice;
 
-        let qty=document.createElement("h3");
-        qty.textContent="Quantity";
-        let select=document.createElement("select");
-        select.setAttribute("id","selected");
-        select.addEventListener("change",function(){
+      let back = document.createElement("p");
+      back.textContent = "+" + cashback + " cashback";
+      let code_no = document.createElement("h4");
+      let code = "#Y4G3";
+      code_no.textContent = code;
+      let cata = document.createElement("p");
+      cata.textContent = category;
 
-            valspan.innerText =+select.value * +finalPrice;
-            updateSubprice(ind, +select.value,  +finalPrice);
-        })
-        for(let i=1;i<11;i++){
-            let option=document.createElement("option");
-            option.textContent=i;
-            select.append(option);
-        }
-        let qtydiv=document.createElement("div");
-        qtydiv.append(qty,select);
-        qtydiv.className="qtyclass";
+      let qty = document.createElement("h3");
+      qty.textContent = "Quantity";
+      let select = document.createElement("select");
+      select.setAttribute("id", "selected");
+      select.addEventListener("change", function () {
+        valspan.innerText = +select.value * +finalPrice;
+        updateSubprice(ind, +select.value, +finalPrice);
+      });
+      for (let i = 1; i < 11; i++) {
+        let option = document.createElement("option");
+        option.textContent = i;
+        select.append(option);
+      }
+      let qtydiv = document.createElement("div");
+      qtydiv.append(qty, select);
+      qtydiv.className = "qtyclass";
 
-        title_div.append(title_head,price_val,back,code_no,cata,qtydiv);
+      title_div.append(title_head, price_val, back, code_no, cata, qtydiv);
 
-        let button_div=document.createElement("div");
-        let removebtn=document.createElement("button");
-        removebtn.innerText="Remove";
-        removebtn.addEventListener("click",function(){
-            removecart(ind);
+      let button_div = document.createElement("div");
+      let removebtn = document.createElement("button");
+      removebtn.innerText = "Remove";
+      removebtn.addEventListener("click", function () {
+        removecart(ind);
+      });
+      button_div.append(removebtn);
 
-        })
-        button_div.append(removebtn);
+      main_div.append(img_div, title_div, button_div);
 
-        main_div.append(img_div,title_div,button_div);
-        
-        let storetotal=document.createElement("div");
-        storetotal.setAttribute("id","store-total");
-        let storediv=document.createElement("div");
-        let stp=document.createElement("p");
-        stp.textContent="Store Total:";
-        let subval=document.createElement("div");
-        let valspan=document.createElement("h3");
-        valspan.setAttribute("id","stprice");
-        valspan.innerText = price[ind];
-        subval.append(valspan);
-        storediv.append(stp);
-        storetotal.append(storediv,subval);
-        document.getElementById("cart-product").append(main_div,storetotal);
-
-    })
+      let storetotal = document.createElement("div");
+      storetotal.setAttribute("id", "store-total");
+      let storediv = document.createElement("div");
+      let stp = document.createElement("p");
+      stp.textContent = "Store Total:";
+      let subval = document.createElement("div");
+      let valspan = document.createElement("h3");
+      valspan.setAttribute("id", "stprice");
+      valspan.innerText = price[ind];
+      subval.append(valspan);
+      storediv.append(stp);
+      storetotal.append(storediv, subval);
+      document.getElementById("cart-product").append(main_div, storetotal);
+    });
     displayTotal(price);
     console.log(obj);
-}
+  };
 
+  let arrOfId = JSON.parse(localStorage.getItem("idlistforcart"));
+  console.log(arrOfId);
 
-let arrOfId = JSON.parse(localStorage.getItem("idlistforcart"));
-console.log(arrOfId);
-
-let dataArr = [];
-let arrOfIdData = async (arr)=>{
-    await arr.map((elem, ind)=>{
-        fetch(`https://shop-json-server.onrender.com/users/${elem}`)
-        .then((resp)=>{
-            return resp.json();
+  let dataArr = [];
+  let arrOfIdData = async (arr) => {
+    await arr.map((elem, ind) => {
+      fetch(`https://shop-json-server.onrender.com/users/${elem}`)
+        .then((resp) => {
+          return resp.json();
         })
-        .then((mydata)=>{
-            // console.log(mydata);
-            dataArr[ind] = mydata;
+        .then((mydata) => {
+          // console.log(mydata);
+          dataArr[ind] = mydata;
         })
-        .then(()=>{
-            display(dataArr);
-        })
-    })
-    
-    
-}
+        .then(() => {
+          display(dataArr);
+        });
+    });
+  };
 
-arrOfIdData(arrOfId);
+  arrOfIdData(arrOfId);
 
-function updateSubprice(ind, qty, price_val){
-    price[ind] = qty*price_val;
+  function updateSubprice(ind, qty, price_val) {
+    price[ind] = qty * price_val;
     console.log(price);
     displayTotal(price);
-}
+  }
 
-function grandtotal(){
-    let count=0; 
-    obj.map() 
-}
+  function grandtotal() {
+    let count = 0;
+    obj.map();
+  }
 
-function removecart(ind){
-    dataArr.splice(ind,1);
+  function removecart(ind) {
+    dataArr.splice(ind, 1);
     price.splice(ind, 1);
     arrOfId.splice(ind, 1);
 
-    localStorage.setItem("idlistforcart",JSON.stringify(arrOfId));
-    display(dataArr); 
-}
+    localStorage.setItem("idlistforcart", JSON.stringify(arrOfId));
+    display(dataArr);
+  }
 
-let aferCoupon = totalCount;
-document.getElementById("shipping-btn").addEventListener("click",()=>{
+  var aferCoupon = totalCount;
+  console.log("fffff",totalCount);
+  
+  
+
+
+
+  document.getElementById("shipping-btn").addEventListener("click", () => {
     let couponVal = document.getElementById("code-input").value;
 
-    let Coupon = totalCount* 70 /  100;
+    let Coupon = (totalCount * 70) / 100;
 
-    if(couponVal==="masai30" && Coupon != aferCoupon){
-        alert("Coupon Code Applied!");
-        aferCoupon = Coupon;
-        document.getElementById("grandt").innerText= Coupon;
+    if (couponVal === "masai30" && Coupon != aferCoupon) {
+      alert("Coupon Code Applied!");
+      aferCoupon = Coupon;
+      document.getElementById("grandt").innerText = Coupon;
+    } else if (couponVal === "masai30" && Coupon === aferCoupon) {
+      alert("Coupon code already applied!");
+    } else {
+      alert("Invalid code");
     }
-    else if(couponVal==="masai30" && Coupon === aferCoupon){
-        alert("Coupon code already applied!")
-    }
-    else{
-        alert("Invalid code")
-    }
+    console.log('fff2',aferCoupon);
+  });
+
+  document.getElementById("checkout").addEventListener("click",()=>{
     console.log(aferCoupon);
-})
-
-
-
-
-
-
+    if(aferCoupon){
+        localStorage.setItem("finelPrice", JSON.stringify(aferCoupon));
+    }
+    window.location.href = "checkout.html";
+  })
 
 
 

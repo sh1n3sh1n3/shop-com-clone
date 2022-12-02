@@ -126,17 +126,17 @@
       <div id="right">
         <h2>Order Summary</h2>
         <hr />
-        <div id="order">
+        <!-- <div id="order">
           <div><h3>Order Total:</h3></div>
 
           <div>
             <h3 id="ordertotalval">00</h3>
           </div>
-        </div>
-        <div id="discount">
+        </div> -->
+        <!-- <div id="discount">
           <div><h3>Discount:</h3></div>
           <div><h3 id="disprice">00</h3></div>
-        </div>
+        </div> -->
         <hr id="dishr" />
         <div id="newprice">
           <div id="pay"><h3>Price to pay:</h3></div>
@@ -151,10 +151,14 @@
 </html>
 <script>
   let local = 200;
+
+  let finelMoney = JSON.parse(localStorage.getItem("finelPrice"));
+  console.log(finelMoney);
+
   //     // let local=JSON.parse(localStorage.getItem("str"))||0;
-  document.getElementById("tprice").innerText = " " + "$" + local;
-  document.getElementById("ordertotalval").innerText = " " + "$" + local;
-  document.getElementById("couponprice").innerText = " " + "$" + local;
+  document.getElementById("tprice").innerText = " " + "$" + finelMoney;
+  // document.getElementById("ordertotalval").innerText = " " + "$" + finelMoney;
+  document.getElementById("couponprice").innerText = " " + "$" + finelMoney;
 
 //   document.getElementById("bottom-right3b").addEventListener("click", funcode);
 //   function funcode(event) {
@@ -181,36 +185,36 @@
 //     "flat": "302"
 // }
   // append address
-  let details = JSON.parse(localStorage.getItem("details"));
-  console.log(details);
-  let box4 = document.createElement("div");
-  box4.id = "box4";
+  // let details = JSON.parse(localStorage.getItem("details"));
+  // console.log(details);
+  // let box4 = document.createElement("div");
+  // box4.id = "box4";
   
 
-  let name = document.createElement("h3");
-  name.innerText = details.name;
-  name.id = "name";
+  // let name = document.createElement("h3");
+  // name.innerText = details.name;
+  // name.id = "name";
 
-  let mob = document.createElement("h3");
-  mob.innerText = details.mobile;
-  mob.id = "mobile";
+  // let mob = document.createElement("h3");
+  // mob.innerText = details.mobile;
+  // mob.id = "mobile";
 
-  let pincode = document.createElement("h3");
-  pincode.innerText = details.pincode;
-  pincode.id = "pincode";
+  // let pincode = document.createElement("h3");
+  // pincode.innerText = details.pincode;
+  // pincode.id = "pincode";
 
-  let city = document.createElement("h3");
-  city.innerText = details.city;
-  city.id = "cities";
+  // let city = document.createElement("h3");
+  // city.innerText = details.city;
+  // city.id = "cities";
 
-  let state = document.createElement("h3");
-  state.innerText = details.state;
-  state.id = "state";
+  // let state = document.createElement("h3");
+  // state.innerText = details.state;
+  // state.id = "state";
 
-  let flat = document.createElement("h3");
-  flat.innerText = details.flat;
-  flat.id = "flat";
+  // let flat = document.createElement("h3");
+  // flat.innerText = details.flat;
+  // flat.id = "flat";
 
-  box4.append(name,mob,pincode,city,state,flat);
+  // box4.append(name,mob,pincode,city,state,flat);
   document.getElementById("bottom-left").append(box4);
 </script>
