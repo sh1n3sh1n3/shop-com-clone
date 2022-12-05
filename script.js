@@ -48,12 +48,12 @@ function toggleAcc() {
   console.log(" gift working")
 }
 
-
+// https://shop-json-server.onrender.com/users?q=${search}
 function inputsumbit() {
   event.preventDefault();
   var search = document.getElementById("header-input").value;
   console.log(search);
-  fetch(`https://shop-json-server.onrender.com/users?q=${search}`)
+  fetch(`http://localhost:3000/users?q=${search}`)
     .then(function (response) {
       return response.json();
 
@@ -62,8 +62,8 @@ function inputsumbit() {
       localStorage.setItem("search",JSON.stringify(data))
       window.location.href="search-result.html";
     })
-    
-}
+    // http://localhost:3000/users?q=lip
+  }
 // let btn=document.getElementById("header-search-button");
 // btn.addEventListener("click",inputsumbit());
 
@@ -76,4 +76,20 @@ function myFunction() {
   alert("Link Copied")
 }
 
+var result = JSON.parse(localStorage.getItem("logindata"));
+console.log(result);
+result.map(function(elem){
+  document.getElementById("userName").innerHTML= elem.name;
+  document.getElementById("signout").innerHTML="Sign Out"
+})
 
+
+
+
+// {
+//   "name": "Denish",
+//   "lastname": "Fuletra",
+//   "email": "fuletradenish@gmail.com",
+//   "password": "1234",
+//   "mobile": ""
+// }

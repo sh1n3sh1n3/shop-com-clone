@@ -1,19 +1,19 @@
 
 
-// let fetchdata = async () => {
-//     let response = await fetch(`https://shop-json-server.onrender.com/users`);
-//     let data = await response.json();
-//     // console.log(data);
-//     arr = data
-//     newarr = data;
-//     localStorage.setItem("arrdata", JSON.stringify(arr));
-//     setTimeout(() => {
-//         displaydata(arr);
-//     }, 200);
+let fetchdata = async () => {
+    let response = await fetch(`https://shop-json-server.onrender.com/users`);
+    let data = await response.json();
+    // console.log(data);
+    arr = data
+    newarr = data;
+    localStorage.setItem("arrdata", JSON.stringify(arr));
+    setTimeout(() => {
+        displaydata(arr);
+    }, 200);
 
 
 
-// }
+}
 
 let arrdata = JSON.parse(localStorage.getItem("search"));
 console.log(arrdata);

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,72 +8,181 @@
     <title> Sign-Up</title>
     <link rel="stylesheet" href="signIn.css">
 </head>
+
 <body>
-    <div id="signup-main">
-       <div id="signup-main-div1">
-        <h1>Create an account</h1>
-        <p>* Indicates required field</p>
-       </div>
-       <div id="signup-main-div2">
-        <div>
-            <p>First name*</p>
-            <input type="text" placeholder="First name here">
+    <header>
+        <section id="head-main">
+<!-- ---------------------left section header--------------------------- -->
+            <section id="section-left">
+                <div id="section-left-div"><a href="#"><img src="https://img.shop.com/Image/resources/logos/shop-logo-us-thanksgiving.svg" alt=""></a></div>
+                <div>
+                    <span href="" id="categories-tag" onclick="togglebmenu()">
+                      <span class="material-symbols-outlined">
+                        menu
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                        
+                      </span>
+                      <p style="font-family:san-serif ;">Categories</p>
+                    </span>
+                </div>
+            </section>
+            
+<!-- ---------------------right section header------------------ -->
+            <section id="section-right">
+                <div id="section-right-top">
+                    <div id="section-right-top-left">
+                        <form action="">
+                            <div id="search-bar">
+                                <div>
+                                    <select name="select" id="header-select">
+                                        <option value="">All Dpartment</option>
+                                        <option value="">Auto</option>
+                                        <option value="">Baby</option>
+                                        <option value="">Beauty</option>
+                                        <option value="">Books</option>
+                                        <option value="">Business</option>
+                                        <option value="">Cameras</option>
+                                        <option value="">Cloths</option>
+                                        <option value="">Collectibles</option>
+                                        <option value="">Computers</option>
+                                    </select>
+                                </div>
+                                <hr>
+                                <div id="header-input-div">
+                                    <input type="text" id="header-input" placeholder="Search SHOP.COM...">
+                                </div>
+                                <div>
+                                    <button id="header-search-button" onclick="inputsumbit()">
+                                        <span class="material-symbols-outlined">
+                                            search
+                                            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+                                            </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="header-right-image">
+                        <img src="https://www.shop.com/feo-cdn/_/d/3hhCIyNJE.webp" alt="">
+                    </div>
+                </div>
+                <div id="section-right-btm">
+                    <section id="header-right-btm-list">
+                        <p><a href="product.html">Exclusive Brands</a></p>
+                        <p><a href="product.html">Stores</a></p>
+                        <p><a href="product.html">Deals</a></p>
+                        <p><a href="product.html">SHOP Travel</a></p>
+                        <p><a href="product.html">Departments</a></p>
+                        <p><a href="product.html">ShopBuddy</a></p>
+                    </section>
+                    <div id="header-right-btm-btn">
+                        <div>
+                            <a  onclick="toggleAcc()">
+                                <span class="material-symbols-outlined">
+                                      person
+                                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+                                </span>
+                                <p class="login-btn-text" id="userName" >LogIn/SignIn</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <span class="material-symbols-outlined">
+                                    replay
+                                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+                                </span>
+                                <p class="login-btn-text">Orders</p>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="cart-payment.html">
+                              <!-- <box-icon name='cart' type='solid' animation='spin' ></box-icon> -->
+                                <span class="material-symbols-outlined">
+                                    shopping_cart
+                                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+                                </span>
+                                <p class="login-btn-text">Cart</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </header>
+    <!-- <form> -->
+        <div id="signup-main">
+            <div id="signup-main-div1">
+                <h1>Create an account</h1>
+                <p>* Indicates required field</p>
+            </div>
+            <div id="signup-main-div2">
+                <div>
+                    <p>First name*</p>
+                    <input id="fname" type="text" placeholder="First name here" required>
+                </div>
+                <div>
+                    <p>Last Name*</p>
+                    <input id="lname" type="text" placeholder="Last name here" required>
+                </div>
+            </div>
+            <div id="signup-main-div3">
+                <p>Email address*</p>
+                <input id="email" type="text" placeholder="yourname@example.com" required>
+            </div>
+            <div id="signup-main-div4">
+                <div>
+                    <p>Password* (At least 7 characters)</p>
+                    <input id="password" type="password" placeholder="Please enter a minimum of 7 characters" required>
+                </div>
+                <div>
+                    <p>Confirm password*</p>
+                    <input id="cpassword" type="password" placeholder="Please reenter your password" required>
+                </div>
+            </div>
+            <hr>
+
+
+            <h2>Text Message (SMS) Alerts: (Optional)</h2>
+            <div id="signup-main-div5">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for Shopper alerts from SHOP.COM? (Message and data rates may apply.)</p>
+            </div>
+            <hr>
+
+
+            <p>Mobile phone</p>
+            <div id="signup-main-div6">
+                <input id="mobile" type="number"
+                    placeholder="Please enter your 10 digit phone number (i.e. 999 999 9999)" required>
+            </div>
+            <hr>
+
+
+            <h3>Email deals: (Optional)</h3>
+            <div id="signup-main-div7">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for sweet email offers and discounts from SHOP.COM?</p>
+            </div>
+            <div id="signup-main-div8">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for sweet email offers and discounts from MarketAmerica.com and its brands?
+                </p>
+            </div>
+
+            <h2>Captcha*</h2>
+            <div id="signup-main-div9">
+                <input type="text" id="captcha-give" readonly>
+                <input required type="text" id="captcha-receive" required>
+            </div>
+
+            <div id="signup-main-div10">
+                <button onclick="validcapt()">Create your new account</button>
+                <p>By creating an account, you are agreeing to our <a href="">Terms of Service</a> and <a
+                        href="">Privacy Policy</a> .</p>
+            </div>
         </div>
-        <div>
-            <p>Last Name*</p>
-            <input type="text" placeholder="Last name here">
-        </div>
-       </div>
-       <div id="signup-main-div3">
-        <p>Email address*</p>
-        <input type="text" placeholder="yourname@example.com">
-       </div>
-       <div id="signup-main-div4">
-        <div>
-            <p>Password* (At least 7 characters)</p>
-            <input type="text" placeholder="Please enter a minimum of 7 characters">
-        </div>
-        <div>
-            <p>Confirm password*</p>
-            <input type="text" placeholder="Please reenter your password">
-        </div>
-       </div>
-       <hr>
-
-
-       <h2>Text Message (SMS) Alerts: (Optional)</h2>
-       <div id="signup-main-div5">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for Shopper alerts from SHOP.COM? (Message and data rates may apply.)</p>
-       </div>
-       <hr>
-       
-
-       <p>Mobile phone</p>
-       <div id="signup-main-div6">
-        <input type="number" placeholder="Please enter your 10 digit phone number (i.e. 999 999 9999)">
-       </div>
-       <hr>
-
-       
-       <h3>Email deals: (Optional)</h3>
-       <div id="signup-main-div7">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from SHOP.COM?</p>
-       </div>
-       <div id="signup-main-div8">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from MarketAmerica.com and its brands?</p>
-       </div>
-
-       <h2>Captcha*</h2>
-       <div id="signup-main-div9">
-        <input type="text" id="captcha-give" readonly>
-        <input type="text" id="captcha-receive">
-       </div>
-
-       <div id="signup-main-div10">
-        <button onclick="validcapt()">Create your new account</button>
-        <p>By creating an account, you are agreeing to our <a href="">Terms of Service</a>  and <a href="">Privacy Policy</a> .</p>
-       </div>
-    </div>
+    <!-- </form> -->
 </body>
 <script src="sign-up.js"></script>
+
 </html>
