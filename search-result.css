@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 *{
@@ -15,6 +14,7 @@ header{
     position: fixed;
     width: 100%;
     z-index: 100;
+    top: 0%;
 }
 #head-main {
     padding: 1%;
@@ -60,13 +60,16 @@ header{
 }
 /* -------------------------------right section--------------------------------- */
 #section-right{
-    width: 100%;
+    width: 80%;
     margin-left: 50px;
     margin-right: 10px;
 }
 #section-right-top{
     display: flex;
     justify-content: space-between;
+}
+#section-right-top-left{
+    width: 60%;
 }
 #section-right-btm{
     display: flex;
@@ -75,7 +78,7 @@ header{
 }
 #search-bar{
     display: flex;
-    width: 200%;
+    width: 100%;
     height: 43px;
     justify-content: space-between;
     align-items: center;
@@ -114,6 +117,8 @@ header{
 }
 #header-right-image{
     width: 25%;
+    display: block;
+    flex-direction: row;
 }
 #header-right-image img{
     width: 100%;
@@ -125,7 +130,13 @@ a{
 #header-right-btm-list{
     display: flex;
     width: 50%;
+    margin-top: 10px;
     justify-content: space-between;
+}
+#header-right-btm-list p{
+    margin-bottom: 0%;
+    font-size: 90%;
+    margin-right: 15px;
 }
 #header-right-btm-list a:hover{
     color: rgb(15,171,162);
@@ -133,14 +144,21 @@ a{
 #header-right-btm-btn{
     display: flex;
     width: 25%;
+    margin-top: 10px;
     justify-content: space-between;
 }
 #header-right-btm-btn {
     padding-top: 7px;
     align-items: center;
 }
+#header-right-btm-btn > div:hover{
+    cursor: pointer;
+}
 #header-right-btm-btn > div p{
     margin-top: 3px;
+}
+.login-btn-text{
+    margin-bottom: 0%;
 }
 #header-right-btm-btn > div >a{
     display: flex;
@@ -148,11 +166,45 @@ a{
 #header-right-btm-btn > div >a:hover{
     color: rgb(0, 180, 197);
 }
+/* ------------------toggle menu------------------ */
+#menu{
+    position: fixed;
+    background-color: white;
+    width: 22%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    left: -32%;
+    padding-left: 1%;
+    z-index: 101;
+    transition: 500ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#menu-cat a > p{
+    margin: 0%;
+    padding:10px 6px;
+}
+#menu-cat p:hover{
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 166, 182);
+}
+#menu.active{
+    left: 0;
+}
+/* #mid-section.brightness{
+    filter: brightness(10%);
+    z-index: 50;
+} */
+
+#cat-logo{
+    width: 20%;
+}
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
+    /* font-family: Roboto, Arial, Helvetica, sans-serif; */
     /* max-width: 1140px; */
 
 }
@@ -163,10 +215,12 @@ a{
     height: 80%;
     width: 100%;
     gap: 10px;
-    margin-top: 8.5%;
+    
     /* padding-left: 20px; */
 }
-
+.search-sort__box{
+    margin-top: 40%;
+}
 #leftPortion {
     /* border: 2px solid black; */
     width: 17%;

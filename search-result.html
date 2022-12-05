@@ -11,11 +11,11 @@
 </head>
 
 <body>
-     <header>
+    <header>
         <section id="head-main">
 <!-- ---------------------left section header--------------------------- -->
             <section id="section-left">
-                <div id="section-left-div"><a href="#"><img src="https://img.shop.com/Image/resources/logos/shop-logo-us-thanksgiving.svg" alt=""></a></div>
+                <div id="section-left-div"><a href="index.html"><img src="https://img.shop.com/Image/resources/logos/shop-logo-us-thanksgiving.svg" alt=""></a></div>
                 <div>
                     <span href="" id="categories-tag" onclick="togglebmenu()">
                       <span class="material-symbols-outlined">
@@ -31,7 +31,7 @@
 <!-- ---------------------right section header------------------ -->
             <section id="section-right">
                 <div id="section-right-top">
-                    <div>
+                    <div id="section-right-top-left">
                         <form action="">
                             <div id="search-bar">
                                 <div>
@@ -78,12 +78,12 @@
                     </section>
                     <div id="header-right-btm-btn">
                         <div>
-                            <a href="">
+                            <a  onclick="toggleAcc()">
                                 <span class="material-symbols-outlined">
                                       person
                                      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                                 </span>
-                                <p id="login-btn-text">LogIn/SignIn</p>
+                                <p class="login-btn-text" id="userName" >LogIn/SignIn</p>
                             </a>
                         </div>
                         <div>
@@ -92,23 +92,24 @@
                                     replay
                                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                                 </span>
-                                <p>Orders</p>
+                                <p class="login-btn-text">Orders</p>
                             </a>
                         </div>
                         <div>
                             <a href="cart-payment.html">
+                              <!-- <box-icon name='cart' type='solid' animation='spin' ></box-icon> -->
                                 <span class="material-symbols-outlined">
                                     shopping_cart
                                     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
                                 </span>
-                                <p>Cart</p>
+                                <p class="login-btn-text">Cart</p>
                             </a>
                         </div>
                     </div>
                 </div>
             </section>
         </section>
-    </header> 
+    </header>
     <div class="search-sort__wrapper">
         <div class="search-sort__box">
             <span class="label">Sort:

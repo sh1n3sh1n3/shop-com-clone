@@ -23,6 +23,7 @@ header{
     position: fixed;
     width: 100%;
     z-index: 100;
+    top: 0;
 }
 #head-main {
     padding: 1%;
@@ -211,7 +212,7 @@ a{
     height: 80%;
     width: 100%;
     gap: 10px;
-    padding-top: 5%;
+    /* padding-top: 5%; */
     /* padding-left: 20px; */
 }
 
@@ -229,7 +230,9 @@ a{
     /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
 
 }
-
+.search-sort__box{
+    margin-top:40%;
+}
 #vImage {
     width: 15px;
     height: 15px
