@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+*{
+    font-family: 'Roboto Flex', sans-serif;
+}
+#body{
+    background-color: rgb(240,241,247);
+    
+    margin: 0%;
+    padding: 0%;
+}
+/* -------------------------------left section--------------------------------- */
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+#head-main {
+    padding: 1%;
+    background-color: rgb(240, 241, 247);
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#section-left {
+    width: 20%;
+}
+
+#section-left-div {
+    width: 100%;
+}
+
+#section-left-div img {
+    width: 100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+.material-symbols-outlined >p{
+    font-size:70%;
+}
+#categories-tag{
+    display: flex;
+    margin-top: 5px;
+}
+#categories-tag:hover{
+    color: rgb(0, 180, 197);
+    cursor: pointer;
+}
+#categories-tag p{
+    margin: 0;
+    margin-top: 2px;
+    margin-left: 3px;
+}
+/* -------------------------------right section--------------------------------- */
+#section-right{
+    width: 80%;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+#section-right-top{
+    display: flex;
+    justify-content: space-between;
+}
+#section-right-top-left{
+    width: 60%;
+}
+#section-right-btm{
+    display: flex;
+    width: 99%;
+    justify-content: space-between;
+}
+#search-bar{
+    display: flex;
+    width: 100%;
+    height: 43px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+}
+#header-select{
+    border: 0ch;
+    margin-left: 2px;
+}
+#header-input-div{
+    width: 73%;
+    height: 28px;
+}
+#header-input{
+    width: 100%;
+    height: 98%;
+    border: 0;
+}
+#header-input:focus{
+    outline: none;
+}
+#header-search-button{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: rgb(32,35,64);
+    border: 0;
+    height: 43px;
+}
+#header-search-button:hover{
+    cursor: pointer;
+}
+#header-search-button .material-symbols-outlined{
+    color: white;
+}
+#header-right-image{
+    width: 25%;
+    display: block;
+    flex-direction: row;
+}
+#header-right-image img{
+    width: 100%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#header-right-btm-list{
+    display: flex;
+    width: 50%;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+#header-right-btm-list p{
+    margin-bottom: 0%;
+}
+#header-right-btm-list a:hover{
+    color: rgb(15,171,162);
+}
+#header-right-btm-btn{
+    display: flex;
+    width: 25%;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+#header-right-btm-btn {
+    padding-top: 7px;
+    align-items: center;
+}
+#header-right-btm-btn > div p{
+    margin-top: 3px;
+}
+.login-btn-text{
+    margin-bottom: 0%;
+}
+#header-right-btm-btn > div >a{
+    display: flex;
+}
+#header-right-btm-btn > div >a:hover{
+    color: rgb(0, 180, 197);
+}
+/* ------------------toggle menu------------------ */
+#menu{
+    position: fixed;
+    background-color: white;
+    width: 22%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    left: -32%;
+    padding-left: 1%;
+    z-index: 101;
+    transition: 500ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#menu-cat a > p{
+    margin: 0%;
+    padding:10px 6px;
+}
+#menu-cat p:hover{
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 166, 182);
+}
+#menu.active{
+    left: 0;
+}
+/* #mid-section.brightness{
+    filter: brightness(10%);
+    z-index: 50;
+} */
+
+#cat-logo{
+    width: 20%;
+}
+/* ------------toggle menu gifts------------ */
+#menu-cat-giftcenter{
+    position: fixed;
+    background-color: white;
+    width: 22%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    left: -32%;
+    padding-left: 1%;
+    z-index: 102;
+    transition: 500ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#menu-cat-giftcenter.activegift{
+    left: 0; 
+}
+#menu-cat-giftcenter img{
+    width: 100%;
+}
+#toggle-signin{
+    position: fixed;
+    float: right;
+    background-color: white;
+    width: 22%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    right: -32%;
+    padding-left: 1%;
+    z-index: 101;
+    transition: 500ms ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#toggle-signin.activeacc{
+    right: 0;
+}
+#toggle-signin >div a{
+    display: flex;
+    align-items: center;
+}
+#toggle-signin >div a >p{
+    margin-left: 8px;
+}
+/* ------------------------middle section--------------------------- */
+#mid-section{
+    padding-top: 8.5%;
+}
+#shop-service{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 7px;
+}
+
+#p-tag-right-img{
+    width: 15px;
+}
+#banner-img img{
+    width: 100%;
+}
+#banner{
+    background-color: white;
+    padding-bottom: 20px;
+}
+#banner-text{
+    display: flex;
+    align-items: center;
+    width: 27%;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+    justify-content: space-around;
+    
+}
+#banner-text img{
+    width: 23px;
+}
+#banner-text button{
+    height: 45px;
+    background-color: white;
+    padding-right:10px;
+    padding-left: 10px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+/* ----------------div next to banner----------------------- */
+
+#div-1{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+#div-1 img{
+    width: 100%;
+}
+#div-1-1,#div-1-2,#div-1-3,#div-1-4{
+    background-color: white;
+    width: 20%;
+    padding: 20px;
+    padding-top: 0%;
+    padding-bottom: 0;
+}
+#div-1-4{
+    display: block;
+}
+#div-1-4 p+div{
+    margin-bottom: 18%;
+}
+.div-1-4-inside{
+    width: 75%;
+    margin: auto;
+    margin-top: 15px;
+    border: 1px solid gray;
+}
+#div-1-4 img{
+    width: 100%;
+    margin: auto;
+}
+ /*--------------------------popular brand----------------  */
+#popular-brands{
+    display: flex;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 80px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+#popular-left{
+    width: 30%;
+    margin: auto;
+}
+#popular-right{
+    width: 65%;
+    margin: auto;
+}
+#popular-right h2{
+    text-align: center;
+}
+#popular-left img{
+    width: 100%;
+}
+#popular-right-top{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+#popular-right-top a{
+    gap: 10%;
+}
+#popular-right-btm{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+#popular-right-btm div{
+    width: 25%;
+}
+#popular-right-btm div img{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#popular-right-btm div b img{
+    width: 17px;
+    box-shadow: none;
+}
+
+/*-----------------------middle logo------------------------  */
+#middle-logo{
+    width: 10%;
+    height: 20px;
+    margin: auto;
+    align-items: center;
+}
+#middle-logo div{
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+#middle-logo img{
+    width: 100%;
+}
+/*----------------------------popular brands 2--------------------  */
+#middle-div{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    gap: 10px;
+    padding-top: 9%;
+}
+.middleDiv{
+    width: 20%;
+    text-align: center;
+}
+.middleDiv img{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.middle-div-p1{
+    font-size: 12px;
+    text-decoration:line-through;
+}
+.middleDiv p img{
+    width: 15px;
+    box-shadow: none;
+}
+.middle-div-p1 img{
+    width: 15px;
+    box-shadow: none;
+}
+/*--------------------------- cyber week special--------------------- */
+#cw-special{
+    width: 95%;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+}
+#cw-special h1{
+    text-align: center;
+    font-family: 'Oswald',sans-serif;
+    font-size: 200%;
+}
+#cw-special >div{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-around;
+}
+.cw-special-div{
+    border: 8px solid rgb(203,205,212);
+    width: 14%;
+    border-radius: 50%;
+}
+.cw-special-div img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* ----------hot toys---------------- */
+
+#hot-toys{
+    width: 95%;
+    margin: auto;
+    margin-top: 25px;
+    background-color: white;
+}
+#hot-toys-top h1{
+    font-family: 'Oswald',sans-serif;
+    margin: 15px;
+    font-size: 230%;
+}
+#hot-toys-btm-left{
+    width: 70%;
+}
+#hot-toys-btm{
+    display: flex;
+}
+#hot-toys-btm-right{
+    width: 30%;
+    padding: 5px;
+}
+#hot-toys-btm-right img{
+    width: 100%;
+}
+/* --------------------------gifts for-------------- */
+#gifts-for{
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    padding: 20px 0;
+    background-color: white;
+    justify-content: space-around;
+}
+#gifts-for img:hover{
+    cursor: pointer;
+}
+/* -------------------buy one get one free--------------- */
+#bogof{
+    padding-top: 20px;
+}
+#bogof h1{
+    font-family: 'Oswald',sans-serif;
+    font-size: 200%;
+    margin-left: 20px;
+}
+/* --------------------Top sellers--------------- */
+
+#top-sellers{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin-top: 20px;
+}
+.top-seller{
+    width: 20%;
+    padding: 10px;
+}
+.top-seller img{
+    width: 100%;
+}
+/* ---------------------------our brands--------------- */
+#our-brands{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    background-color: white;
+}
+.our-brand{
+    width: 20%;
+    padding: 10px;
+}
+.our-brand h3{
+    text-align: center;
+}
+.our-brand img{
+    width: 100%;
+}
+/* ------------------------------footer section--------------------- */
+
+#footer-main{
+    width: 100%;
+    margin-top: 20px;
+}
+/* #footer-main hr{
+    margin: 0%;
+    color: white;
+    background-color: white;
+} */
+#footer-div-1{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: right;
+    padding: 0 10px;
+    background-color: rgb(84,88,113);
+    color: white;
+    border-bottom: 1px solid white;
+}
+#footer-div-1 button{
+    border: 0ch;
+    padding: 5px;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+}
+#footer-div-1 button:hover{
+    background-color: black;
+    color: white;
+}
+#footer-div-2{
+    display: flex;
+    background-color: rgb(84,88,113);
+    color: white;
+    height: 50px;
+    padding: 0 10px;
+    align-items: center;
+}
+#footer-div-2 a>b{
+    color: white;
+}
+#footer-div-3{
+    border-bottom: 1px solid black;
+    padding: 0 10px;
+}
+#footer-div-3 p{
+    font-size: 80%;
+}
+#footer-div-4{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#footer-div-4 img{
+    width: 5%;
+    margin: 0px 7px;
+}
+#footer-div-5{
+    display: flex;
+    justify-content: center;
+}

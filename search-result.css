@@ -1,12 +1,4 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: Roboto, Arial, Helvetica, sans-serif;
-    /* max-width: 1140px; */
 
-}
-/* --------header css----------- */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 *{
@@ -68,16 +60,13 @@ header{
 }
 /* -------------------------------right section--------------------------------- */
 #section-right{
-    width: 80%;
+    width: 100%;
     margin-left: 50px;
     margin-right: 10px;
 }
 #section-right-top{
     display: flex;
     justify-content: space-between;
-}
-#section-right-top-left{
-    width: 60%;
 }
 #section-right-btm{
     display: flex;
@@ -86,7 +75,7 @@ header{
 }
 #search-bar{
     display: flex;
-    width: 100%;
+    width: 200%;
     height: 43px;
     justify-content: space-between;
     align-items: center;
@@ -125,8 +114,6 @@ header{
 }
 #header-right-image{
     width: 25%;
-    display: block;
-    flex-direction: row;
 }
 #header-right-image img{
     width: 100%;
@@ -138,11 +125,7 @@ a{
 #header-right-btm-list{
     display: flex;
     width: 50%;
-    margin-top: 10px;
     justify-content: space-between;
-}
-#header-right-btm-list p{
-    margin-bottom: 0%;
 }
 #header-right-btm-list a:hover{
     color: rgb(15,171,162);
@@ -150,7 +133,6 @@ a{
 #header-right-btm-btn{
     display: flex;
     width: 25%;
-    margin-top: 10px;
     justify-content: space-between;
 }
 #header-right-btm-btn {
@@ -160,50 +142,20 @@ a{
 #header-right-btm-btn > div p{
     margin-top: 3px;
 }
-.login-btn-text{
-    margin-bottom: 0%;
-}
 #header-right-btm-btn > div >a{
     display: flex;
 }
 #header-right-btm-btn > div >a:hover{
     color: rgb(0, 180, 197);
 }
-/* ------------------toggle menu------------------ */
-#menu{
-    position: fixed;
-    background-color: white;
-    width: 22%;
-    height: 100vh;
-    overflow: hidden;
-    overflow-y: scroll;
-    left: -32%;
-    padding-left: 1%;
-    z-index: 101;
-    transition: 500ms ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    /* max-width: 1140px; */
 
-#menu-cat a > p{
-    margin: 0%;
-    padding:10px 6px;
 }
-#menu-cat p:hover{
-    background-color: rgb(231, 231, 231);
-    color: rgb(0, 166, 182);
-}
-#menu.active{
-    left: 0;
-}
-/* #mid-section.brightness{
-    filter: brightness(10%);
-    z-index: 50;
-} */
-
-#cat-logo{
-    width: 20%;
-}
-
 
 #main {
     display: flex;
@@ -211,7 +163,7 @@ a{
     height: 80%;
     width: 100%;
     gap: 10px;
-    padding-top: 5%;
+    margin-top: 8.5%;
     /* padding-left: 20px; */
 }
 
@@ -575,6 +527,7 @@ li{
 
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
+    
     margin: 0;
 }
 #productName{
@@ -640,70 +593,7 @@ input::-webkit-inner-spin-button {
    
 }
 
-/* ---------footer------------ */
-#footer-main{
-    width: 100%;
-    margin-top: 20px;
-}
-/* #footer-main hr{
-    margin: 0%;
-    color: white;
-    background-color: white;
-} */
-#footer-div-1{
-    display: flex;
-    height: 50px;
-    align-items: center;
-    justify-content: right;
-    padding: 0 10px;
-    background-color: rgb(84,88,113);
-    color: white;
-    border-bottom: 1px solid white;
-}
-#footer-div-1 button{
-    border: 0ch;
-    padding: 5px;
-    border-radius: 12px;
-    background-color: white;
-    color: black;
-}
-#footer-div-1 button:hover{
-    background-color: black;
-    color: white;
-}
-#footer-div-2{
-    display: flex;
-    background-color: rgb(84,88,113);
-    color: white;
-    height: 50px;
-    padding: 0 10px;
-    align-items: center;
-}
-#footer-div-2 a>b{
-    color: white;
-}
-#footer-div-3{
-    border-bottom: 1px solid black;
-    padding: 0 10px;
-}
-#footer-div-3 p{
-    font-size: 80%;
-}
-#footer-div-4{
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#footer-div-4 img{
-    width: 5%;
-    margin: 0px 7px;
-}
-#footer-div-5{
-    display: flex;
-    justify-content: center;
-}
+
 
 
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sign-Up</title>
+    <link rel="stylesheet" href="signIn.css">
+</head>
+<body>
+    <div id="signup-main">
+       <div id="signup-main-div1">
+        <h1>Create an account</h1>
+        <p>* Indicates required field</p>
+       </div>
+       <div id="signup-main-div2">
+        <div>
+            <p>First name*</p>
+            <input type="text" placeholder="First name here">
+        </div>
+        <div>
+            <p>Last Name*</p>
+            <input type="text" placeholder="Last name here">
+        </div>
+       </div>
+       <div id="signup-main-div3">
+        <p>Email address*</p>
+        <input type="text" placeholder="yourname@example.com">
+       </div>
+       <div id="signup-main-div4">
+        <div>
+            <p>Password* (At least 7 characters)</p>
+            <input type="text" placeholder="Please enter a minimum of 7 characters">
+        </div>
+        <div>
+            <p>Confirm password*</p>
+            <input type="text" placeholder="Please reenter your password">
+        </div>
+       </div>
+       <hr>
+
+
+       <h2>Text Message (SMS) Alerts: (Optional)</h2>
+       <div id="signup-main-div5">
+        <input type="checkbox" name="" id=""><p>Do you want to sign up for Shopper alerts from SHOP.COM? (Message and data rates may apply.)</p>
+       </div>
+       <hr>
+       
+
+       <p>Mobile phone</p>
+       <div id="signup-main-div6">
+        <input type="number" placeholder="Please enter your 10 digit phone number (i.e. 999 999 9999)">
+       </div>
+       <hr>
+
+       
+       <h3>Email deals: (Optional)</h3>
+       <div id="signup-main-div7">
+        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from SHOP.COM?</p>
+       </div>
+       <div id="signup-main-div8">
+        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from MarketAmerica.com and its brands?</p>
+       </div>
+
+       <h2>Captcha*</h2>
+       <div id="signup-main-div9">
+        <input type="text" id="captcha-give" readonly>
+        <input type="text" id="captcha-receive">
+       </div>
+
+       <div id="signup-main-div10">
+        <button onclick="validcapt()">Create your new account</button>
+        <p>By creating an account, you are agreeing to our <a href="">Terms of Service</a>  and <a href="">Privacy Policy</a> .</p>
+       </div>
+    </div>
+</body>
+<script src="sign-up.js"></script>
+</html>
