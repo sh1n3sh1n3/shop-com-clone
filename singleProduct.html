@@ -113,9 +113,11 @@
         </section>
     </header>
 
+<!-- main content -->
     <div id="mainContent">
         <div id="image">
-            <img src="https://img.shop.com/Image/210000/214100/214196/products/1126614911.jpg?plain&size=1600x1600" alt="" id="productImg">
+            <!-- src="https://img.shop.com/Image/210000/214100/214196/products/1126614911.jpg?plain&size=1600x1600" -->
+            <img  alt="" id="productImg">
         </div>
         <div id="content">
             <div class="value">
@@ -136,7 +138,7 @@
                 <div class="buyNow">
                     <h6><i class="fa-solid fa-compact-disc"></i> Buy Now</h6>
                     <p>Qty: 1<p/>
-                    <button><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    <button id="cartBtn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
                 </div>
                 <div class="zipCode">
                     <input type="text" placeholder="zip code">
@@ -266,7 +268,9 @@
         <section role="region" aria-labelledby="Product Classifications" class="descriptions__section descriptions js-prod-expandable" id="Product Classifications" data-accordion-id="Product Classifications"> <div class="wrapper wrapper--large"> <div class="descriptions__text descriptions__text--full"> <p><br></p><p><strong>Gluten-Free</strong> - The finished product contains no detectable gluten (&lt;10ppm gluten)</p><br><p><strong>No Detectable GMOs</strong> - The finished product contains no detectable genetically-modified organisms</p><br><p><strong>Vegetarian</strong> - This product is vegetarian</p><br><p><strong>Isotonic-Capable Drinkable Supplements</strong> - Easy-to-swallow supplements in liquid form are immediately available to the body for absorption</p><br> <p><strong>Quality Standards</strong> - GMP Operations and Standardized Ingredients</p><br> <p><strong>Checked For:</strong> Heavy Metals, Microbiological Contaminants, Allergens, Residual Solvents, Potency, Purity and Identity</p><p></p> </div> </div> </section>
 
         <h2 class="descriptions__title ">Isotonix Essentials® Turn Down</h2>
-        <section role="region" aria-labelledby="Isotonix Essentials® Turn Down" class="descriptions__section descriptions js-prod-expandable IfremClass" id="Isotonix Essentials® Turn Down" data-accordion-id="Isotonix Essentials® Turn Down"> <div class="wrapper wrapper--large "> <div class="descriptions-media__video"> <iframe class="descriptions__video" src="https://www.youtube.com/embed/Og3BNMF1xWs?rel=0" title="Isotonix Essentials® Turn Down View Product Video" frameborder="0" allowfullscreen=""></iframe> </div> </div> </section>
+        <section role="region" aria-labelledby="Isotonix Essentials® Turn Down" class="descriptions__section descriptions js-prod-expandable IfremClass" id="Isotonix Essentials® Turn Down" data-accordion-id="Isotonix Essentials® Turn Down"> <div class="wrapper wrapper--large "> <div class="descriptions-media__video"> 
+            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/2peu90aDw38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        </div> </div> </section>
 
         <h2 class="descriptions__title ">Description</h2>
         <section role="region" aria-labelledby="Description" class="descriptions__section descriptions js-prod-expandable" id="Description" data-accordion-id="Description"> <div class="wrapper wrapper--large"> <div class="descriptions__text descriptions__text--full"> <p></p><p>It’s hard to feel balanced and grounded sometimes, especially when restless and worrying thoughts cut into your downtime. Sometimes you just need to free yourself from life’s to-do lists and halt the brakes on your ruminating mind. Bring some calmness into your life with Isotonix Essentials®.<br><br>Designed for relaxation, Isotonix Essentials® Turn Down features a custom blend of vitamins, amino acids and minerals all in one easy-to-use packet. The formula contains effective key ingredients to help you quiet down your body, promote mental clarity, control mental tension and support healthy sleep quality.<br><br>Many people can benefit from slowing down life a little. According to the American Institute of Stress, 77% of people regularly experience physical symptoms caused by stress (e.g. fatigue, headache, muscle tension); 76% regularly experience psychological symptoms caused by stress.</p><p><br></p><p>*These statements have not been evaluated by the Food and Drug Administration. This product(s) is not intended to diagnose, treat, cure or prevent any disease.</p><p></p> </div> </div> </section>
@@ -321,7 +325,52 @@
     
 
 
-    
+    <script>
+        let idNo = JSON.parse(localStorage.getItem("productshowlist"));
+        let cartArr = JSON.parse(localStorage.getItem("idlistforcart"));
+        console.log("the arr",idNo, cartArr);
 
+
+        let display = (product)=>{
+            document.getElementById("title").innerText = "";
+            document.getElementById("title").innerText = product.name;
+            let img = document.getElementById("productImg");
+            img.src = product.url;
+            document.getElementById("price").innerText = "";
+            document.getElementById("price").innerText = product.finalPrice;
+
+            document.getElementById("cartBtn").addEventListener("click", ()=>{
+                var flag = false;
+                for (var i=0; i<cartArr.length; i++){
+                    if(product.id === cartArr[i]){
+                        flag = true;
+                    }
+                }
+                if(flag){
+                    alert("Product is already present in cart.")
+                }else{
+                    cartArr.push(product.id);
+                    localStorage.setItem("idlistforcart", JSON.stringify(cartArr));
+                    alert("Product is added in the cart.")
+
+                }
+            })
+        }
+
+        let IdData = async (id) => {
+            //https://shop-json-server.onrender.com/users/
+            fetch(`http://localhost:3000/users/${id}`)
+            .then((resp) => {
+            return resp.json();
+            })
+            .then((data) => {
+                console.log(data);
+                display(data);
+            })
+        };
+        
+        IdData(idNo)
+
+    </script>
 </body>
 </html>

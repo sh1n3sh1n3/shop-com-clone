@@ -306,21 +306,22 @@
       document.getElementById("cart-product").append(main_div, storetotal);
     });
     displayTotal(price);
-    console.log(obj);
+    // console.log(obj);
   };
 
   let arrOfId = JSON.parse(localStorage.getItem("idlistforcart"));
-  console.log(arrOfId);
+  console.log("the arr",arrOfId);
 
   let dataArr = [];
   let arrOfIdData = async (arr) => {
     await arr.map((elem, ind) => {
-      fetch(`https://shop-json-server.onrender.com/users/${elem}`)
+      //https://shop-json-server.onrender.com/users/
+      fetch(`http://localhost:3000/users/${elem}`)
         .then((resp) => {
           return resp.json();
         })
         .then((mydata) => {
-          // console.log(mydata);
+          console.log(mydata);
           dataArr[ind] = mydata;
         })
         .then(() => {
@@ -333,7 +334,7 @@
 
   function updateSubprice(ind, qty, price_val) {
     price[ind] = qty * price_val;
-    console.log(price);
+    // console.log(price);
     displayTotal(price);
   }
 
@@ -350,6 +351,7 @@
     localStorage.setItem("idlistforcart", JSON.stringify(arrOfId));
     display(dataArr);
   }
+
 
   var aferCoupon = totalCount;
   console.log("fffff",totalCount);
