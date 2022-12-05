@@ -40,3 +40,17 @@ function login(e) {
     alert("Please Enter Correct Email and Password");
   }
 }
+
+// function inputsumbit(){
+ 
+   
+//     var search = document.getElementById("header-input").value;
+//     console.log(search);
+//     fetch(`http://localhost:3000/users?q=lip`)
+//     .then(function(response){
+//         return response.json();
+//     }).then(function(data){
+//         console.log(data);
+//         console.log("Hello");
+//     })
+// }
