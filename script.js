@@ -69,7 +69,7 @@ function inputsumbit() {
 
 function myFunction() {
   
-  var copyText = "file:///C:/Users/Aditya/Desktop/shop/index.html";
+  var copyText = "https://shop-clone-com.netlify.app/";
   navigator.clipboard.writeText(copyText);
 
   //console.log("working")
