@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title> Sign-Up</title>
     <link rel="stylesheet" href="signIn.css">
 </head>
+
 <body>
     <header>
         <section id="head-main">
@@ -80,7 +82,7 @@
                                       person
                                      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                                 </span>
-                                <p class="login-btn-text">LogIn/SignIn</p>
+                                <p class="login-btn-text" id="userName" >LogIn/SignIn</p>
                             </a>
                         </div>
                         <div>
@@ -107,109 +109,80 @@
             </section>
         </section>
     </header>
-    <div id="signup-main">
-       <div id="signup-main-div1">
-        <h1>Create an account</h1>
-        <p>* Indicates required field</p>
-       </div>
-       <div id="signup-main-div2">
-        <div>
-            <p>First name*</p>
-            <input type="text" placeholder="First name here">
+    <!-- <form> -->
+        <div id="signup-main">
+            <div id="signup-main-div1">
+                <h1>Create an account</h1>
+                <p>* Indicates required field</p>
+            </div>
+            <div id="signup-main-div2">
+                <div>
+                    <p>First name*</p>
+                    <input id="fname" type="text" placeholder="First name here" required>
+                </div>
+                <div>
+                    <p>Last Name*</p>
+                    <input id="lname" type="text" placeholder="Last name here" required>
+                </div>
+            </div>
+            <div id="signup-main-div3">
+                <p>Email address*</p>
+                <input id="email" type="text" placeholder="yourname@example.com" required>
+            </div>
+            <div id="signup-main-div4">
+                <div>
+                    <p>Password* (At least 7 characters)</p>
+                    <input id="password" type="password" placeholder="Please enter a minimum of 7 characters" required>
+                </div>
+                <div>
+                    <p>Confirm password*</p>
+                    <input id="cpassword" type="password" placeholder="Please reenter your password" required>
+                </div>
+            </div>
+            <hr>
+
+
+            <h2>Text Message (SMS) Alerts: (Optional)</h2>
+            <div id="signup-main-div5">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for Shopper alerts from SHOP.COM? (Message and data rates may apply.)</p>
+            </div>
+            <hr>
+
+
+            <p>Mobile phone</p>
+            <div id="signup-main-div6">
+                <input id="mobile" type="number"
+                    placeholder="Please enter your 10 digit phone number (i.e. 999 999 9999)" required>
+            </div>
+            <hr>
+
+
+            <h3>Email deals: (Optional)</h3>
+            <div id="signup-main-div7">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for sweet email offers and discounts from SHOP.COM?</p>
+            </div>
+            <div id="signup-main-div8">
+                <input type="checkbox" name="" id="">
+                <p>Do you want to sign up for sweet email offers and discounts from MarketAmerica.com and its brands?
+                </p>
+            </div>
+
+            <h2>Captcha*</h2>
+            <div id="signup-main-div9">
+                <input type="text" id="captcha-give" readonly>
+                <input required type="text" id="captcha-receive" required>
+            </div>
+
+            <div id="signup-main-div10">
+                <button onclick="validcapt()">Create your new account</button>
+                <p>By creating an account, you are agreeing to our <a href="">Terms of Service</a> and <a
+                        href="">Privacy Policy</a> .</p>
+            </div>
         </div>
-        <div>
-            <p>Last Name*</p>
-            <input type="text" placeholder="Last name here">
-        </div>
-       </div>
-       <div id="signup-main-div3">
-        <p>Email address*</p>
-        <input type="text" placeholder="yourname@example.com">
-       </div>
-       <div id="signup-main-div4">
-        <div>
-            <p>Password* (At least 7 characters)</p>
-            <input type="text" placeholder="Please enter a minimum of 7 characters">
-        </div>
-        <div>
-            <p>Confirm password*</p>
-            <input type="text" placeholder="Please reenter your password">
-        </div>
-       </div>
-       <hr>
-
-
-       <h2>Text Message (SMS) Alerts: (Optional)</h2>
-       <div id="signup-main-div5">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for Shopper alerts from SHOP.COM? (Message and data rates may apply.)</p>
-       </div>
-       <hr>
-       
-
-       <p>Mobile phone</p>
-       <div id="signup-main-div6">
-        <input type="number" placeholder="Please enter your 10 digit phone number (i.e. 999 999 9999)">
-       </div>
-       <hr>
-
-       
-       <h3>Email deals: (Optional)</h3>
-       <div id="signup-main-div7">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from SHOP.COM?</p>
-       </div>
-       <div id="signup-main-div8">
-        <input type="checkbox" name="" id=""><p>Do you want to sign up for sweet email offers and discounts from MarketAmerica.com and its brands?</p>
-       </div>
-
-       <h2>Captcha*</h2>
-       <div id="signup-main-div9">
-        <input type="text" id="captcha-give" readonly>
-        <input type="text" id="captcha-receive" placeholder="Enter Captcha">
-       </div>
-
-       <div id="signup-main-div10">
-        <button onclick="validcapt()">Create your new account</button>
-        <p>By creating an account, you are agreeing to our <a href="">Terms of Service</a>  and <a href="">Privacy Policy</a> .</p>
-       </div>
-    </div>
-<!-- -------------------------------------footer section----------------------------------------- -->
-<footer>
-    <div id="footer-main">
-      <div id="footer-div-1"><b>Link To This Page & Tell All Your Friends!</b>
-           <button onclick="myFunction()">Copy Link</button>
-      </div>
-      <!-- <hr> -->
-      <div id="footer-div-2">
-        <a href=""><b>About Us</b> </a>|
-        <a href=""><b>Help</b> </a>|
-        <a href=""><b>Accessiblity Statement</b> </a>|
-        <a href=""><b>Contact Us</b> </a>|
-        <a href=""><b>Partner With Us</b> </a>|
-        <a href=""><b>Services</b> </a>|
-        <a href=""><b>Country/Region</b> </a>|
-        <a href=""><b>Connect</b> </a>|
-        <a href=""><b>Own your own SHOP site</b> </a>
-      </div>
-      <div id="footer-div-3">
-        <p>© 1997-2022 Market America, Inc. or its affiliates. All other designated trademarks, copyrights, and brands are the property of their respective owners.</p>
-        <p>Only Customers will receive cashback on qualifying purchases. UnFranchise Owners/Shop Consultants will receive increased IBV instead of cashback on qualifying purchases.</p>
-        <p><a href="">Privacy Policy |</a><a href="">Terms of Use</a><a href="">Advertising Disclosure |</a><a href="">Return Policy |</a><a href="">Shipping Information</a> </p>
-      </div>
-      <div id="footer-div-4">
-        <img src="https://www.shop.com/feo-cdn/7/F/BIyWLz__s.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/B/L/K5pf_0c94.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/m/S/eK8gl_JjY.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/0/q/U9W4qM8Kw.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/b/Y/U8fhRaNAg.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/N/z/XfD9Uvd_o.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/K/F/E44Pe49Qs.webp" alt="">
-        <img src="https://www.shop.com/feo-cdn/n/U/D-6J9dXTA.webp" alt="">
-      </div>
-      <div id="footer-div-5">
-        <img src="https://seal.digicert.com/seals/cascade/?tag=mcRGO2B9&referer=www.shop.com&format=png&lang=en&seal_number=3&seal_size=m" alt="">
-      </div>
-    </div>
-  </footer>
+    <!-- </form> -->
 </body>
 <script src="sign-up.js"></script>
+
 </html>

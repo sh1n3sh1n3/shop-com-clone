@@ -76,4 +76,20 @@ function myFunction() {
   alert("Link Copied")
 }
 
+var result = JSON.parse(localStorage.getItem("logindata"));
+console.log(result);
+result.map(function(elem){
+  document.getElementById("userName").innerHTML= elem.name;
+  document.getElementById("signout").innerHTML="Sign Out"
+})
 
+
+
+
+// {
+//   "name": "Denish",
+//   "lastname": "Fuletra",
+//   "email": "fuletradenish@gmail.com",
+//   "password": "1234",
+//   "mobile": ""
+// }
