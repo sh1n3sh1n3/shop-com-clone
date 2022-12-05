@@ -187,8 +187,8 @@ a{
 }
 #left form{
     /* background-color: aqua; */
-     margin-left: 90px; 
-     margin-right: 100px;
+     margin-left: 5%; 
+     margin-top: 3%;
     /* margin: auto; */
     background-color:rgb(240,241,247);
     padding: 30px;
@@ -196,7 +196,7 @@ a{
 }
 #left input{
     padding: 20px;
-    width: 250px;
+    width: 400px;
     display: block;
     margin-top: 20px;
     margin-left: 70px;
@@ -208,13 +208,14 @@ a{
 }
 #submit-form{
     padding: 17px;
-    width: 100px;
+    width: 430px;
     border: none;
     border-radius: 10px;
     color: white;
     background-color: rgb(32,35,107);
-    margin-top: 40px;
-    margin-left: 150px;
+    margin-left: 80px;
+    margin-top: 20px;
+    /* margin-left: 150px; */
     
 }
 #hori{
@@ -240,7 +241,8 @@ a{
     margin: 30px;
 }
 #left h3{
-    margin: 20px;
+    margin: 0px;
+    font-size: 26px;
 }
 #add{
     background-color: black;
