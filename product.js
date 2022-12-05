@@ -509,4 +509,9 @@ let manualprice = () => {
 
 
 
-
+var result = JSON.parse(localStorage.getItem("logindata"));
+console.log(result);
+result.map(function(elem){
+  document.getElementById("userName").innerHTML= elem.name;
+  document.getElementById("signout").innerHTML="Sign Out"
+})
