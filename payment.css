@@ -5,7 +5,7 @@
 }
 #body{
     background-color: rgb(240,241,247);
-    
+    font-family: 'Roboto Flex', sans-serif;
     margin: 0%;
     padding: 0%;
 }
@@ -153,6 +153,7 @@ a{
 #heading{
     display: flex;
     justify-content: space-between;
+    font-family: 'Roboto Flex', sans-serif;
     margin: 30px;
     padding-top: 6.5%;
      color: rgb(32,35,107);
@@ -160,6 +161,7 @@ a{
 #addcontainer{
     display: flex;
     justify-content: space-between;
+    font-family: 'Roboto Flex', sans-serif;
     /* background-color: #204320; */
 }
 #buttonadd{

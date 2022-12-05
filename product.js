@@ -174,7 +174,7 @@ function addcart(list) {
     if(!idlist.includes(list.id)){
         idlist.push(list.id);
         console.log(idlist);
-        alert("Product is added in the cart.");
+        alert("Product is added to the cart.");
         localStorage.setItem("idlistforcart", JSON.stringify(idlist));
     } else {
         alert("Product is already present in the cart.");

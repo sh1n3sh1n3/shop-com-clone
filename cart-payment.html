@@ -28,7 +28,7 @@
 <!-- ---------------------right section header------------------ -->
           <section id="section-right">
               <div id="section-right-top">
-                  <div>
+                  <div id="section-right-top-left">
                       <form action="">
                           <div id="search-bar">
                               <div>
@@ -80,7 +80,7 @@
                                     person
                                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                               </span>
-                              <p id="login-btn-text">LogIn/SignIn</p>
+                              <p class="login-btn-text" id="userName" >LogIn/SignIn</p>
                           </a>
                       </div>
                       <div>
@@ -89,17 +89,17 @@
                                   replay
                                   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
                               </span>
-                              <p>Orders</p>
+                              <p class="login-btn-text">Orders</p>
                           </a>
                       </div>
                       <div>
-                          <a href="">
+                          <a href="cart-payment.html">
                             <!-- <box-icon name='cart' type='solid' animation='spin' ></box-icon> -->
                               <span class="material-symbols-outlined">
                                   shopping_cart
                                   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
                               </span>
-                              <p>Cart</p>
+                              <p class="login-btn-text">Cart</p>
                           </a>
                       </div>
                   </div>
@@ -228,7 +228,7 @@
     }
     console.log(totalCount);
     localStorage.setItem("finelPrice", JSON.stringify(totalCount));
-    document.getElementById("grandt").innerText = totalCount;
+    document.getElementById("grandt").innerText ="$ "+ totalCount;
   };
 
   display = (obj) => {
@@ -250,7 +250,7 @@
       let title_head = document.createElement("h4");
       title_head.textContent = name;
       let price_val = document.createElement("h3");
-      price_val.textContent = "$" + finalPrice;
+      price_val.textContent = "$ " + finalPrice;
       // price.push(+finalPrice);
       price[ind] = +finalPrice;
 
@@ -267,7 +267,7 @@
       let select = document.createElement("select");
       select.setAttribute("id", "selected");
       select.addEventListener("change", function () {
-        valspan.innerText = +select.value * +finalPrice;
+        valspan.innerText ="$ "+ +select.value * +finalPrice;
         updateSubprice(ind, +select.value, +finalPrice);
       });
       for (let i = 1; i < 11; i++) {
@@ -299,7 +299,8 @@
       let subval = document.createElement("div");
       let valspan = document.createElement("h3");
       valspan.setAttribute("id", "stprice");
-      valspan.innerText = price[ind];
+      let num = 
+      valspan.innerText = "$ "+ price[ind].toFixed(2);
       subval.append(valspan);
       storediv.append(stp);
       storetotal.append(storediv, subval);
@@ -363,13 +364,13 @@
   document.getElementById("shipping-btn").addEventListener("click", () => {
     let couponVal = document.getElementById("code-input").value;
 
-    let Coupon = (totalCount * 70) / 100;
+    let Coupon = (totalCount * 80) / 100;
 
-    if (couponVal === "masai30" && Coupon != aferCoupon) {
+    if (couponVal === "shop20" && Coupon != aferCoupon) {
       alert("Coupon Code Applied!");
       aferCoupon = Coupon;
-      document.getElementById("grandt").innerText = Coupon;
-    } else if (couponVal === "masai30" && Coupon === aferCoupon) {
+      document.getElementById("grandt").innerText = "$"+" "+ Coupon;
+    } else if (couponVal === "shop20" && Coupon === aferCoupon) {
       alert("Coupon code already applied!");
     } else {
       alert("Invalid code");
@@ -385,7 +386,12 @@
     window.location.href = "checkout.html";
   })
 
-
+  var result = JSON.parse(localStorage.getItem("logindata"));
+console.log(result);
+result.map(function(elem){
+  document.getElementById("userName").innerHTML= elem.name;
+  document.getElementById("signout").innerHTML="Sign Out"
+})
 
 
 </script>
