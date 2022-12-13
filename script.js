@@ -53,7 +53,7 @@ function inputsumbit() {
   event.preventDefault();
   var search = document.getElementById("header-input").value;
   console.log(search);
-  fetch(`http://localhost:3000/users?q=${search}`)
+  fetch(`https://shop-json-server.onrender.com/users?q=${search}`)
     .then(function (response) {
       return response.json();
 
