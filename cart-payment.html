@@ -318,7 +318,7 @@
   let arrOfIdData = async (arr) => {
     await arr.map((elem, ind) => {
       //https://shop-json-server.onrender.com/users/
-      fetch(`http://localhost:3000/users/${elem}`)
+      fetch(`https://shop-json-server.onrender.com/users/${elem}`)
         .then((resp) => {
           return resp.json();
         })
