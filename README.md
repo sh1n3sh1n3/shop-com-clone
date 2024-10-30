@@ -1,14 +1,5 @@
 ![shop](https://user-images.githubusercontent.com/113697547/215677663-86bcc442-532a-4374-8d13-1a4987c4fe66.png)
 
-
-# Features
-
- - Login/signup
- - Adding the products to the cart with required quantity. 
- - Increasing the quantity, deleting the cart items from the cart page.
- - Getting the total price and proceeding to the payment page.
- - Payment options and order confirmation.
-
 ## 🔗 Deploy Link
 [shop-clone.com](https://shop-clone-com.netlify.app/)
 
